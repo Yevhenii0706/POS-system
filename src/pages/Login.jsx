@@ -72,7 +72,6 @@ const Login = () => {
           <button type="submit" className="btn-grad">
             Log In
           </button>
-
           <div className="home">
             <a href="/">Go to home page</a>
           </div>

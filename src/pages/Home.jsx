@@ -8,7 +8,7 @@ const Home = () => {
         <div className="circle"></div>
         <div className="circles"></div>
         <a href="/" className="logo">
-          Pos<span>Management</span>
+          Pos<span>System</span>
         </a>
         <ul>
           <li>
@@ -24,16 +24,11 @@ const Home = () => {
           POS <span>System</span>
         </h1>
         <p>
-          - Easy to manage interface.
-          <br />
-          - Ability to easily track and categorize products. <br />- Creating
-          orders and invoicing created orders.
-          <br />- Ability to edit and delete products and orders according to
-          authorization status.
+          Created by Yevhenii
         </p>
       </div>
       <div className="background_image">
-        <img src={require("../images/pos-bg.png")} alt="..." />
+        {/* <img src={require("../images/pos-bg.png")} alt="..." /> */}
       </div>
     </section>
   );

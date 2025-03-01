@@ -1,14 +1,22 @@
-import '../styles/Header.css';
+import React from "react";
+import { Link } from "react-router-dom";
 
-export const Header = () => (
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/exchange">Exchange</a></li>
-      <li><a href="/faqs">FAQs</a></li>
-      <li><a href="/utility-token">Utility Token</a></li>
-      <li><a href="/revenue-share">Revenue Share</a></li>
-      <li><a href="/how-to-use">How to Use</a></li>
-    </ul>
-  </nav>
-);
+const Header = () => {
+  return (
+    <header>
+      <div>
+        <Link to="/">POS</Link>
+      </div>
+      <ul>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+      </ul>
+    </header>
+  );
+};
+
+export default Header;

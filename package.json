@@ -18,10 +18,11 @@
     "react-spinners": "^0.13.8",
     "react-to-print": "^2.14.12",
     "react-toastify": "^9.1.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack-dev-server": "^4.15.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --allowed-hosts all",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -43,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "options": {
+    "allowedHosts": ["all"],
+    "proxy": "https://inventory-r06h.onrender.com/api"
   }
 }

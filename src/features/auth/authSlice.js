@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from '../auth/authService'
 import { toast } from 'react-toastify'
 import {addLocalStorageUser, getLocalStorageUser, deleteLocalStorageUser} from '../../utils/localStorage'
+import axios from "axios";
 
 const user = getLocalStorageUser()
 
@@ -22,8 +23,20 @@ export const register = createAsyncThunk('auth/register', async (user, thunkAPI)
 })
 
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
+    console.log("user--->", user)
     try {
-      return await authService.login(user)
+        return await axios('https://inventory-r06h.onrender.com/api/login', { // No need to specify the full URL, just the path
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+            method: 'POST',
+            data:{
+                email:user.email, password: user.password 
+            },
+            body: JSON.stringify({ email:user.email, password: user.password }),
+            credentials: 'include', // Ensure credentials (cookies, etc.) are sent
+        });
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)
     }
@@ -77,8 +90,9 @@ export const authSlice = createSlice({
         })
         .addCase(login.fulfilled, (state, action) => {
             state.loading = false
-            state.user = action.payload
-            addLocalStorageUser(action.payload)
+            state.user = action.payload.data
+            addLocalStorageUser(action.payload.data)
+            localStorage.setItem("token", action.payload.data.token);
             toast.success('user success login')
         })
         .addCase(login.rejected, (state, action) => {

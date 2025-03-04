@@ -26,9 +26,9 @@ function App() {
             <Route
               path="/dashboard"
               element={
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
+                // <PrivateRoute>
+                <Dashboard />
+                // </PrivateRoute>
               }
             >
               <Route path="" element={<Content />} />
@@ -36,7 +36,6 @@ function App() {
               <Route path="form" element={<Modal />} />
               <Route path="category/:category" element={<CategoryProducts />} />
             </Route>
-
             <Route
               path="/cart"
               element={

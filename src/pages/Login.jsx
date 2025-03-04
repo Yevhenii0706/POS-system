@@ -17,6 +17,10 @@ const Login = () => {
 
   const { user, error, success, message } = useSelector((state) => state.auth);
 
+  const userDt = useSelector((state) => state.auth);
+
+  console.log(userDt);
+
   useEffect(() => {
     if (error) {
       toast.error(message);

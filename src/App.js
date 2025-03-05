@@ -13,6 +13,7 @@ import Modal from "./components/Modal";
 import CategoryProducts from "./pages/CategoryProducts";
 import NotFound from "./pages/NotFound";
 import PrivateRoute from "./pages/PrivateRoute";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
@@ -41,6 +42,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Cart />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/reset"
+              element={
+                <PrivateRoute>
+                  <ResetPassword />
                 </PrivateRoute>
               }
             />

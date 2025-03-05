@@ -6,6 +6,10 @@ export const getLocalStorageUser = () => {
    return JSON.parse(localStorage.getItem('user'))
 }
 
+export const getLocalStorageToken = () => {
+   return localStorage.getItem('token')
+}
+
 export const deleteLocalStorageUser = () => {
    localStorage.removeItem('user')
 }

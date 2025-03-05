@@ -7,6 +7,10 @@ import {
   FaUserCircle,
   FaSignInAlt,
   FaWpforms,
+  FaCompass,
+  FaWallet,
+  FaAccusoft,
+  FaUserTag,
 } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
@@ -41,6 +45,10 @@ const SidebarLeft = () => {
         <Link to="/cart">
           <FaShoppingCart className="menu-icon" />
           Cart
+        </Link>
+        <Link to="/reset">
+          <FaUserTag className="menu-icon" style={{textAlign: "center"}}/>
+          Reset Password
         </Link>
       </div>
 

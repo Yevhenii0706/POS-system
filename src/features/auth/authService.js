@@ -2,7 +2,7 @@ import httpRequest from '../../utils/request'
 //const API_URL = '/api/auth/register'
 
 const register = async (user) => {
-    const response = await httpRequest.post("/auth/register", user)
+    const response = await httpRequest.post("/users/register", user)
     return response.data
 }
 
@@ -12,8 +12,8 @@ const login = async (user) => {
 }
 
 const logout = async () => {
-    const response = await httpRequest.post("/auth/logout")
-    return response.data
+    // const response = await httpRequest.post("/auth/logout")
+    return "logout"
 }
 
 const allUsers = async () => {

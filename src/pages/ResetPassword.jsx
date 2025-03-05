@@ -2,35 +2,24 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { login, reset } from "../features/auth/authSlice";
+import { login, reset, resetPass } from "../features/auth/authSlice";
 
-const Login = () => {
+const ResetPassword = () => {
   const [form, setForm] = useState({
-    email: "",
     password: "",
+    confirmPassword: "",
   });
 
-  const { email, password } = form;
+  const { password, confirmPassword } = form;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { user, error, success, message } = useSelector((state) => state.auth);
-
-  const userDt = useSelector((state) => state.auth);
-
-  console.log(userDt);
-
   useEffect(() => {
-    if (error) {
-      toast.error(message);
-    }
-    if (success || user) {
-      navigate("/dashboard");
-    }
+    
+      // navigate("/dashboard");
 
-    dispatch(reset());
-  }, [error, success, user, message, navigate, dispatch]);
+  }, [navigate, dispatch]);
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -39,46 +28,43 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const userData = {
-      email,
+    const passData = {
       password,
+      confirmPassword,
     };
-    dispatch(login(userData));
+    dispatch(resetPass(passData));
   };
 
   return (
     <>
       <div className="auth-container">
         <form className="register-form" onSubmit={handleSubmit}>
-          <h1>Login</h1>
-
+          <h1>Reset Password</h1>
           <div className="formInput">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              value={email}
-              onChange={onChange}
-            />
-          </div>
-
-          <div className="formInput">
-            <label>Password</label>
+            <label>New password</label>
             <input
               type="password"
-              placeholder="Password"
+              placeholder="password"
               name="password"
               value={password}
               onChange={onChange}
             />
-            
+          </div>
+          <div className="formInput">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              placeholder="confirm Password"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={onChange}
+            />
           </div>
           <button type="submit" className="btn-grad">
-            Log In
+            Reset Password
           </button>
           <div className="home">
-            <a href="/">Go to home page</a>
+            <a href="/dashboard">Go back dashboard</a>
           </div>
         </form>
       </div>
@@ -86,4 +72,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;

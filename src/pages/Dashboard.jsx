@@ -5,9 +5,9 @@ import ShoppingCart from "../pages/ShoppingCart";
 import { useSelector } from "react-redux";
 const Dashboard = () => {
 
-  const userDt = useSelector((state) => state.auth);
+  // const userDt = useSelector((state) => state.auth);
 
-  console.log("userDt=============>", userDt.user.data.user);
+  // console.log("userDt=============>", userDt.user.data.user);
   
   return (
     <>

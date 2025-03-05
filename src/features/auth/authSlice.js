@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from '../auth/authService'
 import { toast } from 'react-toastify'
-import {addLocalStorageUser, getLocalStorageUser, deleteLocalStorageUser} from '../../utils/localStorage'
+import {addLocalStorageUser, getLocalStorageToken, getLocalStorageUser, deleteLocalStorageUser} from '../../utils/localStorage'
 import axios from "axios";
+import {jwtDecode} from "jwt-decode";
 
 const user = getLocalStorageUser()
+const token = getLocalStorageToken();
 
 const initialState = {
     user: user ? user : '',
@@ -32,19 +34,21 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
             },
             method: 'POST',
             data:{
-                email:user.email, password: user.password 
+                email:user.email, password: user.password
             },
             body: JSON.stringify({ email:user.email, password: user.password }),
             credentials: 'include', // Ensure credentials (cookies, etc.) are sent
         });
     } catch (error) {
+        console.log("error====>", error.response);
+        
         return thunkAPI.rejectWithValue(error.response.data)
     }
 })
 
 export const logout = createAsyncThunk('auth/logout', (_, thunkAPI) => {
     try {
-      return authService.logout()
+        return authService.logout()
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data)
     }
@@ -57,6 +61,30 @@ export const allUsers = createAsyncThunk('auth/allUsers', (_, thunkAPI) => {
         return thunkAPI.rejectWithValue(error.response.data)
     }
 })
+
+
+export const resetPass = createAsyncThunk('auth/reset', async (passData, thunkAPI) => {
+    try {
+        if(passData.password === passData.confirmPassword) {
+            return await axios('https://inventory-r06h.onrender.com/api/auth/reset-password/confirm', { // No need to specify the full URL, just the path
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                },
+                method: 'POST',
+                data:{
+                    email:user.email, resetToken: token, newPassword: passData.password
+                },
+                credentials: 'include', // Ensure credentials (cookies, etc.) are sent
+            });
+        } else {
+            toast("Confirm password!")
+        }
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response)
+    }
+})
+
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -91,15 +119,17 @@ export const authSlice = createSlice({
         .addCase(login.fulfilled, (state, action) => {
             state.loading = false
             state.user = action.payload.data
-            addLocalStorageUser(action.payload.data)
-            localStorage.setItem("token", action.payload.data.token);
+            addLocalStorageUser(action.payload.data.data.user)
+            localStorage.setItem("token", action.payload.data.data.token);
             toast.success('user success login')
         })
         .addCase(login.rejected, (state, action) => {
+            console.log("reject");
             state.loading = false
             state.error = true
-            state.message = action.payload
+            // state.message = action.payload.responseMessage
             state.user = null
+            // console.log("responseMessage----->", action.payload.responseMessage);
         })
         .addCase(logout.fulfilled, (state) => {
             state.user = null

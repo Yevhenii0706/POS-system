@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
     const userData = {
       email,

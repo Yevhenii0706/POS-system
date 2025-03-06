@@ -50,8 +50,7 @@ const Login = () => {
     <>
       <div className="auth-container">
         <form className="register-form" onSubmit={handleSubmit}>
-          <h1>Login</h1>
-
+          <h1 style={{ marginBottom: "50px" }}>Login</h1>
           <div className="formInput">
             <label>Email</label>
             <input
@@ -72,7 +71,7 @@ const Login = () => {
               value={password}
               onChange={onChange}
             />
-            
+
           </div>
           <button type="submit" className="btn-grad">
             Log In

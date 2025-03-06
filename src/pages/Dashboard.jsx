@@ -8,7 +8,7 @@ const Dashboard = () => {
   // const userDt = useSelector((state) => state.auth);
 
   // console.log("userDt=============>", userDt.user.data.user);
-  
+
   return (
     <>
       <div className="container">
@@ -22,7 +22,7 @@ const Dashboard = () => {
         </div>
 
         <div className="sidebarRight">
-          <ShoppingCart />
+          {/* <ShoppingCart /> */}
         </div>
       </div>
     </>

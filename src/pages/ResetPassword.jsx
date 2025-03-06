@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { login, reset, resetPass } from "../features/auth/authSlice";
 
 const ResetPassword = () => {
+
   const [form, setForm] = useState({
     password: "",
     confirmPassword: "",
@@ -15,9 +16,12 @@ const ResetPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const message = useSelector((state) => state.auth.message);
+  console.log("message=====>", message)
+
   useEffect(() => {
-    
-      // navigate("/dashboard");
+
+    // navigate("/dashboard");
 
   }, [navigate, dispatch]);
 

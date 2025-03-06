@@ -1,12 +1,12 @@
-import axios from 'axios'
+import axios from "axios";
 
 const httpRequest = axios.create({
-    headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-    },
-    baseURL: "https://inventory-r06h.onrender.com/api",
-    withCredentials: true,
-})
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+  baseURL: "https://inventory-r06h.onrender.com/api",
+  credentials: "include",
+});
 
-export default httpRequest
+export default httpRequest;

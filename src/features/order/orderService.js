@@ -5,7 +5,6 @@ const token = getLocalStorageToken();
 httpRequest.defaults.headers.common["Authorization"] = token;
 
 const orderCreate = async (cartItems) => {
-  console.log(cartItems);
   var kinds = [];
   for (var j = 0; j < cartItems.length; j++) {
     var index = -1;
@@ -13,9 +12,8 @@ const orderCreate = async (cartItems) => {
       if (cartItems[j].companyId === kinds[i].companyId) {
         index = i;
         break;
-      }
+      } 
     }
-    console.log("safdafads");
     if (index === -1) {
       const now = new Date();
       var tmp = {
@@ -45,7 +43,6 @@ const orderCreate = async (cartItems) => {
   }
   // localhost:5000/api/order/add-order
   //   for (let i = 0; i < kinds.length; i++) {
-  console.log("kinds->", kinds[0]);
   const response = await httpRequest.post("/api/invoice/create", {
     companyId: "67b705e701a4e144f539ae10",
     customerName: "John Doe",
@@ -66,8 +63,7 @@ const orderCreate = async (cartItems) => {
         amount: 2000.0,
       },
     ],
-  });
-  //   }
+  } );
   console.log(response.data);
   return response.data;
 };

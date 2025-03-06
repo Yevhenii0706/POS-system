@@ -161,7 +161,6 @@ const getProducts = async () => {
     //   companyId: "67b705e701a4e144f539ae10",
     //   threshold: "7",
     // });
-  console.log(response.responseMessage.products);
   return response.responseMessage.products;
 };
 

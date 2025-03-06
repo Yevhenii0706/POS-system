@@ -11,7 +11,7 @@ const initialState = {
     price: '', 
     category: '',
     error: false,
-    loading: false,
+    loading: false, 
     isEditing: false,
     editProductId: '',
 }
@@ -91,7 +91,6 @@ export const productSlice = createSlice({
         .addCase(getProducts.fulfilled, (state, action) => {
             state.loading = false
             state.products = action.payload
-            console.log("product--->", action.payload);
             
         })
         .addCase(getProducts.rejected, (state, action) => {

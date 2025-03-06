@@ -5,8 +5,10 @@ const httpRequest = axios.create({
         "Accept": "application/json",
         "Content-Type": "application/json",
     },
-    baseURL: "https://inventory-r06h.onrender.com/api",
+    baseURL: "https://inventory-r06h.onrender.com/",
     withCredentials: true,
 })
+
+ 
 
 export default httpRequest

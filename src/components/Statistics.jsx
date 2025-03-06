@@ -17,7 +17,7 @@ const Statistics = () => {
 
   return (
     <>
-      <div className="statistic-layout">
+      <div className="statistic-layout"> 
         <div className="statistics">
           <span className="statistic-title">Orders</span>
           <div className="statistic-count">

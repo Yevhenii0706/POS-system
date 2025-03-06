@@ -25,7 +25,7 @@ const ShoppingCart = () => {
 
   return (
     <div className="cart">
-      <div className="cart-header">
+      {/* <div className="cart-header">
         <div className="cart-title">
           <span>Cart Items</span>
           <span>Cart Table</span>
@@ -35,8 +35,8 @@ const ShoppingCart = () => {
           <h3># {cartItems && cartItems.length}</h3>
           <h3>T1</h3>
         </div>
-      </div>
-
+      </div> */}
+      
       <div className="cart-empty">
         {cartItems.length === 0 && (
           <div className="cart-title">
@@ -47,7 +47,7 @@ const ShoppingCart = () => {
 
       {cartItems ? (
         cartItems.map((cart) => (
-          <div className="cart-items" key={cart.id}>
+          <div className="cart-items" key={cart.productId}>
             <div className="image">
               {cart.image ? (
                 <img className="product-image" src={cart.image} alt="..." />
@@ -67,18 +67,13 @@ const ShoppingCart = () => {
                 className="remove-item"
                 type="button"
                 onClick={() => {
-                  dispatch(removeCartItem(cart.id));
+                  dispatch(removeCartItem(cart.productId));
                 }}
               >
                 X
               </button>
 
               <div className="details">
-                <div className="status">
-                  <span className="status-note">Category:</span>
-                  <p className="status-text">{cart.category}</p>
-                </div>
-
                 <div className="price">
                   <p>$ {cart.price}</p>
                 </div>
@@ -88,7 +83,7 @@ const ShoppingCart = () => {
                     className="increment-btn"
                     type="button"
                     onClick={() => {
-                      dispatch(increase(cart.id));
+                      dispatch(increase(cart.productId));
                     }}
                   >
                     +
@@ -98,7 +93,7 @@ const ShoppingCart = () => {
                     className="decrement-btn"
                     type="button"
                     onClick={() => {
-                      dispatch(decrease(cart.id));
+                      dispatch(decrease(cart.productId));
                     }}
                   >
                     -
@@ -129,7 +124,11 @@ const ShoppingCart = () => {
 
         <div className="pay">
           <button className="pay-btn" onClick={() => navigate("/cart")}>
-            Checkout
+            Reset
+          </button>
+          &nbsp;&nbsp;
+          <button className="pay-btn" onClick={() => navigate("/cart")}>
+            Pay Now
           </button>
         </div>
       </div>

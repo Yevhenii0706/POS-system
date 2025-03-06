@@ -8,14 +8,14 @@ const Content = () => {
     <>
       <Statistics />
 
-      <div className="products-title">
+      {/* <div className="products-title">
         <h1 className="products">Categories</h1>
-      </div>
+      </div> */}
 
-      <Categories />
+      {/* <Categories /> */}
 
       <div className="products-title">
-        <h1 className="products">All Products</h1>
+        <h1 className="products">Products</h1>
       </div>
 
       <Products />

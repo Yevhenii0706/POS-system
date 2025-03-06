@@ -40,8 +40,8 @@ const Login = () => {
     e.preventDefault();
 
     const userData = {
-      email,
-      password,
+      email: email,
+      password: password,
     };
     dispatch(login(userData));
   };

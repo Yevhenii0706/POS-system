@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import SidebarLeft from "../components/SidebarLeft";
 import ShoppingCart from "../pages/ShoppingCart";
 import { useSelector } from "react-redux";
+import Footer from "./Footer";
 const Dashboard = () => {
 
   // const userDt = useSelector((state) => state.auth);
@@ -17,12 +18,13 @@ const Dashboard = () => {
         </div>
 
         {/* Dynamic Page */}
-        <div className="main-content">
+        <div className="main-content" style={{position:"relative"}}>
           <Outlet />
+          <Footer/>
         </div>
 
         <div className="sidebarRight">
-          {/* <ShoppingCart /> */}
+          <ShoppingCart />
         </div>
       </div>
     </>

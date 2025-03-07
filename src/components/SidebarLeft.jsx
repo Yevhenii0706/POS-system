@@ -38,9 +38,9 @@ const SidebarLeft = () => {
           <FaShopify className="menu-icon" />
           Orders
         </Link>
-        <Link to="/dashboard/form">
+        <Link to="/dashboard/manage">
           <FaWpforms className="menu-icon" />
-          Form
+          Manangement
         </Link>
         <Link to="/cart">
           <FaShoppingCart className="menu-icon" />

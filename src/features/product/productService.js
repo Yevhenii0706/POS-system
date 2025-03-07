@@ -11,8 +11,16 @@ httpRequest.defaults.headers.common["Authorization"] = token;
 
 const productCreate = async (product) => {
   // localhost:5000/api/product/add-product
-  const response = await httpRequest.post("/product/add-product", product);
-  return response.data;
+  console.log(product);
+  const response = await httpRequest.post("/createProduct", {
+    name: product.name,
+    description: product.description,
+    price: Number(product.price),
+    sku: product.sku,
+    stockLevel: Number(product.stockLevel),
+    companyId: product.companyId,
+  });
+  return response.responseCode;
 };
 
 const getProducts = async () => {
@@ -23,32 +31,32 @@ const getProducts = async () => {
   //     threshold: "7",
   //   }
 
-    // var response = axios({
-    //   method: "get",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //     Authorization: `Bearer ${token}`, // Ensure the token has the "Bearer" prefix
-    //   },
-    //   data: {
-    //     mode: "raw",
-    //     raw: {
-    //       companyId: "67b705e701a4e144f539ae10",
-    //       threshold: "7",
-    //     },
-    //     options: {
-    //       raw: {
-    //         language: "json",
-    //       },
-    //     },
-    //     // Use params to send data in the URL as query parameters
-    //   },
-    //   url: "https://inventory-r06h.onrender.com/api/inventory/getProductCatalog",
-    //   withCredentials: true, // If you need to include credentials like cookies
-    // });
+  // var response = axios({
+  //   method: "get",
+  //   headers: {
+  //     Accept: "application/json",
+  //     "Content-Type": "application/json",
+  //     Authorization: `Bearer ${token}`, // Ensure the token has the "Bearer" prefix
+  //   },
+  //   data: {
+  //     mode: "raw",
+  //     raw: {
+  //       companyId: "67b705e701a4e144f539ae10",
+  //       threshold: "7",
+  //     },
+  //     options: {
+  //       raw: {
+  //         language: "json",
+  //       },
+  //     },
+  //     // Use params to send data in the URL as query parameters
+  //   },
+  //   url: "https://inventory-r06h.onrender.com/api/inventory/getProductCatalog",
+  //   withCredentials: true, // If you need to include credentials like cookies
+  // });
 
-//   const response = await httpRequest.get("/api/inventory/getProductCatalog", );
-//   return response.data;
+  //   const response = await httpRequest.get("/api/inventory/getProductCatalog", );
+  //   return response.data;
 
   const response = {
     responseCode: "Product list fetched successfully.",
@@ -157,10 +165,10 @@ const getProducts = async () => {
     },
   };
 
-    // const response = await httpRequest.get("/api/inventory/getProductCatalog", {
-    //   companyId: "67b705e701a4e144f539ae10",
-    //   threshold: "7",
-    // });
+  // const response = await httpRequest.get("/api/inventory/getProductCatalog", {
+  //   companyId: "67b705e701a4e144f539ae10",
+  //   threshold: "7",
+  // });
   return response.responseMessage.products;
 };
 

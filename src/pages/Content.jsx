@@ -14,9 +14,9 @@ const Content = () => {
 
       {/* <Categories /> */}
 
-      {/* <div className="products-title">
-        <h1 className="products">Products</h1>
-      </div> */}
+        {/* <div className="products-title">
+          <h1 className="products">Products</h1>
+        </div> */}
 
       <Products />
     </>

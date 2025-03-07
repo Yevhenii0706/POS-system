@@ -5,8 +5,9 @@ const OrderPrint = ({ order }) => {
   const componentRef = useRef();
 
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    onAfterPrint: () => alert("print success"),
+    content: () => componentRef.current
+    // ,
+    // onAfterPrint: () => alert("print success"),
   });
 
   return (
@@ -27,11 +28,11 @@ const OrderPrint = ({ order }) => {
                 <div className="p_title">
                   <div>
                     <span className="c_detail">Customer: </span>
-                    <span className="c_title">{order.customer}</span>
+                    <span className="c_title">{order.customerName}</span>
                   </div>
                 </div>
 
-                <div className="p_title">
+                {/* <div className="p_title">
                   <div>
                     <span className="c_detail">Phone: </span>
                     <span className="c_title">{order.phone}</span>
@@ -41,7 +42,7 @@ const OrderPrint = ({ order }) => {
                   <p className="c_detail">
                     {order.country}, {order.province}
                   </p>
-                </div>
+                </div> */}
               </div>
               <div className="i_details">
                 <div className="main_title">
@@ -64,7 +65,7 @@ const OrderPrint = ({ order }) => {
                 </div>
                 <div className="p_title">
                   <p className="c_detail">Payment Method:</p>
-                  <span className="o_detail">{order.payment}</span>
+                  <span className="o_detail">{order.invoiceType}</span>
                 </div>
               </div>
             </div>
@@ -91,19 +92,19 @@ const OrderPrint = ({ order }) => {
                   </div>
                 </div>
                 <div className="i_table_body">
-                  {order.cartItems.map((item) => (
+                  {order.products.map((item) => (
                     <div key={item._id} className="i_row">
                       <div className="i_col w_55">
-                        <p>{item.name}</p>
+                        <p>{item._id}</p>
                       </div>
                       <div className="i_col w_15 text_center">
                         <p>{item.quantity}</p>
                       </div>
                       <div className="i_col w_15 text_center">
-                        <p>$ {item.price}</p>
+                        <p>$ {item.amount/item.quantity}</p>
                       </div>
                       <div className="i_col w_15 text_right">
-                        <p>$ {item.price * item.quantity}</p>
+                        <p>$ {item.amount}</p>
                       </div>
                     </div>
                   ))}
@@ -116,8 +117,8 @@ const OrderPrint = ({ order }) => {
                       <p>TOTAL:</p>
                     </div>
                     <div className="i_col w_50 text_right">
-                      <p>$ {order.subTotal}</p>
-                      <p>${order.tax}</p>
+                      <p>$ {order.totalAmount}</p>
+                      <p>${order.tax?order.tax:0}:</p>
                       <p>${order.totalAmount}</p>
                     </div>
                   </div>

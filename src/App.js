@@ -14,12 +14,15 @@ import CategoryProducts from "./pages/CategoryProducts";
 import NotFound from "./pages/NotFound";
 import PrivateRoute from "./pages/PrivateRoute";
 import ResetPassword from "./pages/ResetPassword";
+import ManagementProduct from "./pages/ManagementProduct";
+import Manangement from "./pages/Management";
+import Footer from "./pages/Footer";
 
 function App() {
   return (
     <>
       <Router>
-        <div className="App">
+        <div className="App" >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -34,8 +37,9 @@ function App() {
             >
               <Route path="" element={<Content />} />
               <Route path="orders" element={<Orders />} />
-              <Route path="form" element={<Modal />} />
+              <Route path="manage" element={<Manangement />} />
               <Route path="category/:category" element={<CategoryProducts />} />
+
             </Route>
             <Route
               path="/cart"

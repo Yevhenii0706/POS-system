@@ -32,8 +32,6 @@ const Products = () => {
       </div>
     );
   }
-  console.log(products);
-
   return (
     <div className="product-area">
       <div className="company-category">
@@ -75,7 +73,7 @@ const Products = () => {
         </ul>
       </div>
       <div className="product-content">
-        <div class="product-grid" id="product-grid">
+        <div className="product-grid" id="product-grid">
           {products.map((product) => (
             <ProductItem key={product.productId} product={product} />
           ))}

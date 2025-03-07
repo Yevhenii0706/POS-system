@@ -32,7 +32,6 @@ const Cart = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(cartItems)
     dispatch(orderCreate(cartItems));
     // dispatch(clearCart());
     // deleteLocalStorageCart();
@@ -71,7 +70,7 @@ const Cart = () => {
         <div
           style={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
         >
-          <button class="pay-button" onClick={handleSubmit}>
+          <button className="pay-button" onClick={handleSubmit}>
             Pay Now
           </button>
         </div>
@@ -90,7 +89,7 @@ const Cart = () => {
             <tbody>
               {cartItems ? (
                 cartItems.map((product) => (
-                  <tr key={product.id}>
+                  <tr key={product.productId}>
                     <td>
                       <button
                         type="button"

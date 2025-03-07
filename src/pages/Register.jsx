@@ -30,7 +30,7 @@ const Register = () => {
       toast.error(message)
     }
     if (success || user) {
-      navigate('/dashboard')
+      // navigate('/dashboard')
     }
     dispatch(reset())
   }, [error, success, user, message, navigate, dispatch])

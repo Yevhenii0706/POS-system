@@ -14,22 +14,23 @@ const Home = () => {
           <li>
             <Link to="/login">Login</Link>
           </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
         </ul>
       </header>
       <div className="texts">
         <h1>
           POS <span>System</span>
         </h1>
-        <p>
-          Created by Yevhenii
-        </p>
       </div>
       <div className="background_image">
-        {/* <img src={require("../images/pos-bg.png")} alt="..." /> */}
+        <img style={{ height: "70%" }} src={require("../images/pos-bg.png")} alt="..." />
       </div>
+      <footer style={{ position: "fixed", bottom: "0px", width: "100%" }}>
+        <div >
+          <p style={{ textAlign: "center", marginLeft: "auto", marginRight: "auto", marginBottom: "30px", fontWeight: "bold", fontSize: "20px", color: "purple" }}>
+            Copyright @Alina Kazi
+          </p>
+        </div>
+      </footer>
     </section>
   );
 };

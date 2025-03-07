@@ -79,6 +79,11 @@ const Login = () => {
           <div className="home">
             <a href="/">Go to home page</a>
           </div>
+          <div >
+            <p style={{ textAlign: "center", marginLeft: "auto", marginRight: "auto", textDecoration: "underline", fontSize: "15px", color: "purple" }}>
+              Copyright @Alina Kazi
+            </p>
+          </div>
         </form>
       </div>
     </>

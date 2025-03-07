@@ -27,12 +27,12 @@ const ShoppingCart = () => {
 
   return (
     <div className="cart">
-      <div className="cart-header" style={{height:"50px"}}>
+      <div className="cart-header" style={{ height: "50px" }}>
         <div className="cart-title">
           <span>INVOICE</span>
         </div>
       </div>
-      <div  style={{flex:1,overflowY:"auto"}}>
+      <div style={{ flex: 1, overflowY: "auto" }}>
         {cartItems ? (
           cartItems.map((cart) => (
             <div className="cart-items" key={cart.productId}>
@@ -98,7 +98,7 @@ const ShoppingCart = () => {
 
       <div
         className="total-card"
-        style={{ height: "270px", background: "white",textAlign:"center" }}
+        style={{ height: "270px", background: "white", textAlign: "center" }}
       >
         <div className="total-items">
           <span className="items-count">Items ({cartItems.length})</span>
@@ -124,7 +124,7 @@ const ShoppingCart = () => {
           </button>
         </div>
         <br />
-        <span style={{fontWeight:"bold"}}>Copyright@2025</span>
+        <span style={{ fontWeight: "bold", textDecoration: "underline", color: "purple" }}>Copyright 2025 @Alina Kazi</span>
       </div>
     </div>
   );

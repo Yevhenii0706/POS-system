@@ -9,36 +9,32 @@ import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import Orders from "./pages/Orders";
 import Content from "./pages/Content";
-import Modal from "./components/Modal";
 import CategoryProducts from "./pages/CategoryProducts";
 import NotFound from "./pages/NotFound";
 import PrivateRoute from "./pages/PrivateRoute";
 import ResetPassword from "./pages/ResetPassword";
-import ManagementProduct from "./pages/ManagementProduct";
 import Manangement from "./pages/Management";
-import Footer from "./pages/Footer";
 
 function App() {
   return (
     <>
       <Router>
-        <div className="App" >
+        <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route
               path="/dashboard"
               element={
-                // <PrivateRoute>
-                <Dashboard />
-                // </PrivateRoute>
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
               }
             >
               <Route path="" element={<Content />} />
               <Route path="orders" element={<Orders />} />
               <Route path="manage" element={<Manangement />} />
               <Route path="category/:category" element={<CategoryProducts />} />
-
             </Route>
             <Route
               path="/cart"

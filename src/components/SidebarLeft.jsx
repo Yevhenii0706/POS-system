@@ -11,6 +11,7 @@ import {
   FaWallet,
   FaAccusoft,
   FaUserTag,
+  FaPlus,
 } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
@@ -40,7 +41,7 @@ const SidebarLeft = () => {
         </Link>
         <Link to="/dashboard/manage">
           <FaWpforms className="menu-icon" />
-          Manangement
+          Manange
         </Link>
         <Link to="/cart">
           <FaShoppingCart className="menu-icon" />
@@ -51,16 +52,16 @@ const SidebarLeft = () => {
           Reset
         </Link>
         <Link to="/register">
-          <FaUserTag className="menu-icon" style={{ textAlign: "center" }} />
+          <FaPlus className="menu-icon" style={{ textAlign: "center" }} />
           Add
         </Link>
       </div>
 
       <div className="user-info">
-        <div className="user-detail">
+        {/* <div className="user-detail">
           <FaUserCircle className="user-icon" />
-          <span className="user">{user.name}</span>
-        </div>
+          <span className="user">{user.user}</span>
+        </div> */}
         <button className="logout-btn" onClick={logoutUser}>
           <FaSignInAlt className="logout-icon" />
         </button>

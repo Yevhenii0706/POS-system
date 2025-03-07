@@ -1,6 +1,5 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import { FaHome, FaTimes } from "react-icons/fa";
-import { toast } from "react-toastify";
 import { useNavigate, Link } from "react-router-dom";
 import {
   clearCart,

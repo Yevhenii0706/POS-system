@@ -19,13 +19,14 @@ export const cartSlice = createSlice({
             state.cartItems = []
         },
         addToCart: (state, action) => {
-            let cartIndex = state.cartItems.findIndex((item) => item.id === action.payload.id)
+            let cartIndex = state.cartItems.findIndex((item) => item.productId === action.payload.productId)
             // Increasing the quantity of the product
             if (cartIndex >= 0) {
-                if (state.cartItems[cartIndex].quantity < state.cartItems[cartIndex].stock) {
+                // if (state.cartItems[cartIndex].quantity < state.cartItems[cartIndex].stock) {
                     state.cartItems[cartIndex].quantity += 1
-                }
-            } else {
+                // }
+            } 
+            else {
                 // index -1
                 // New product to cart add 
                  state.cartItems.push({ ...action.payload, quantity: 1 })
@@ -46,16 +47,16 @@ export const cartSlice = createSlice({
             state.totalAmount = state.tax + state.subTotal
         },
         increase: (state, action) => {
-            const product = state.cartItems.find((item) => item.id === action.payload)
-            if (product.quantity < product.stock) {
+            const product = state.cartItems.find((item) => item.productId === action.payload)
+            // if (product.quantity < product.stock) {
                  product.quantity = product.quantity + 1
-            } else {
-                 product.quantity = product.stock
-            }
+            // } else {
+                //  product.quantity = product.stock
+            // }
             addLocalStorageCart(state.cartItems)
         },
         decrease: (state, action) => {
-            const product = state.cartItems.find((item) => item.id === action.payload)
+            const product = state.cartItems.find((item) => item.productId === action.payload)
             if (product.quantity <= 1) {
                 product.quantity = 1
             } else {
@@ -64,11 +65,11 @@ export const cartSlice = createSlice({
             addLocalStorageCart(state.cartItems)
         },
         removeCartItem: (state, action) => {
-            state.cartItems = state.cartItems.filter((item) => item.id !== action.payload)
+            state.cartItems = state.cartItems.filter((item) => item.productId !== action.payload)
             addLocalStorageCart(state.cartItems)
         }
     },
-})
+}) 
 
 export const { clearCart, addToCart, productSubTotal, productTax, productTotalAmount, increase, decrease, removeCartItem } = cartSlice.actions;
 export default cartSlice.reducer

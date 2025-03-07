@@ -35,17 +35,17 @@ const ProductItem = ({ product }) => {
   }, [dispatch, cartItems]);
 
   const setEdit = (product) => {
-    const { name, stock, image, price, category, user } = product;
+    const { name, description, sku, price, stockLevel, qrCode } = product;
 
     dispatch(
       setEditProduct({
         name,
-        stock,
-        image,
+        description,
+        sku,
         price,
-        category,
-        user,
-        editProductId: product._id,
+        stockLevel,
+        qrCode,
+        editProductId: product.productId,
       })
     );
 
@@ -53,18 +53,41 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <div className="product-cart">
-      {product.image ? (
-        <img className="product-image" src={product.image} alt="..." />
-      ) : (
-        <img
-          className="default-image"
-          src={require("../images/product.png")}
-          alt="..."
-        />
-      )}
+    // {product.image ? (
+    //         <img className="product-image" src={product.image} alt="..." />
+    //       ) : (
+    //         <img
+    //           className="default-image"
+    //           src={require("../images/product.png")}
+    //           alt="..."
+    //         />
+    //       )}
+    // <div className="product-cart">
+    <div class="product-card">
+      <div class="product-image">
+        {product.image ? (
+          <img className="product-image" src={product.image} alt="..." />
+        ) : (
+          <img
+            className="default-image"
+            src={require("../images/product.png")}
+            alt="..."
+          />
+        )}
+      </div>
+      <div class="product-content">
+        <div class="product-name">{product.name}</div>
+        <div class="product-price">${product.price}</div>
+        <div class="product-description">
+        {product.description}
+        </div>
+        <button class="order-button" onClick={()=>{
+          addCart(product)
+        }}>Order Now</button>
+      </div>
+    </div>
 
-      <div className="product-cart-detail">
+    /* <div className="product-cart-detail">
         <h4>{product.name}</h4>
         <p className="product-price">$ {product.price}</p>
         <span className="stock-status">
@@ -74,22 +97,18 @@ const ProductItem = ({ product }) => {
       </div>
 
       <div className="add-product-cart">
-        {product.stock === 0 ? (
-          <div className="cart-stock">Out Of Stock</div>
-        ) : (
-          <button
-            className="add-cart"
-            type="submit"
-            onClick={() => {
-              addCart(product);
-            }}
-          >
-            Add Cart
-          </button>
-        )}
-      </div>
+        <button
+          className="add-cart"
+          type="submit"
+          onClick={() => {
+            addCart(product);
+          }}
+        >
+          Add Cart
+        </button>
+      </div> */
 
-      {product.user.toString() === user._id && (
+    /* {product.user.toString() === user._id && (
         <div>
           <button
             className="product-delete"
@@ -110,8 +129,8 @@ const ProductItem = ({ product }) => {
             <FaEdit />
           </button>
         </div>
-      )}
-    </div>
+      )} */
+    // </div>
   );
 };
 

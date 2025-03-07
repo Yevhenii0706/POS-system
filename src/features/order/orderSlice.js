@@ -17,7 +17,7 @@ export const orderCreate = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
-);
+); 
 
 export const getOrders = createAsyncThunk(
   "order/getOrders",

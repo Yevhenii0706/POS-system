@@ -16,49 +16,29 @@ const Statistics = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <div className="statistic-layout"> 
-        <div className="statistics">
-          <span className="statistic-title">Orders</span>
-          <div className="statistic-count">
-            <div className="image">
-              <img src={require("../images/order.png")} alt="..." />
-            </div>
-            <span>{orders.length}</span>
-          </div>
+    <div className="statistic-layout">
+      <div className="statistics">
+        <div className="image">
+          <img src={require("../images/order.png")} alt="..." />
         </div>
-
-        <div className="statistics">
-          <span className="statistic-title">Users</span>
-          <div className="statistic-count">
-            <div className="image">
-              <img src={require("../images/users.png")} alt="..." />
-            </div>
-            <span>{users.length}</span>
-          </div>
-        </div>
-
-        <div className="statistics">
-          <span className="statistic-title">Products</span>
-          <div className="statistic-count">
-            <div className="image">
-              <img src={require("../images/products.png")} alt="..." />
-            </div>
-            <span>{products.length}</span>
-          </div>
-        </div>
-
-        <div className="statistics">
-          <span className="statistic-title">Categories</span>
-          <div className="statistic-count">
-            <div className="image">
-              <img src={require("../images/category.png")} alt="..." />
-            </div>
-            <span>{categories.length}</span>
-          </div>
-        </div>
+        <span className="statistic-title">Orders</span>
+        <span className="statistic-count">{orders.length}</span>
       </div>
-    </>
+      <div className="statistics">
+        <div className="image">
+          <img src={require("../images/users.png")} alt="..." />
+        </div>
+        <span className="statistic-title">Users</span>
+        <span className="statistic-count">{users.length}</span>
+      </div>
+      <div className="statistics">
+        <div className="image">
+          <img src={require("../images/product.png")} alt="..." />
+        </div>
+        <span className="statistic-title">Products</span>
+        <span className="statistic-count">{products.length}</span>
+      </div>
+    </div>
   );
 };
 

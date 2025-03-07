@@ -25,17 +25,11 @@ const ShoppingCart = () => {
 
   return (
     <div className="cart">
-      {/* <div className="cart-header">
+      <div className="cart-header">
         <div className="cart-title">
-          <span>Cart Items</span>
-          <span>Cart Table</span>
+          <span>INVOICE</span>
         </div>
-
-        <div className="cart-number">
-          <h3># {cartItems && cartItems.length}</h3>
-          <h3>T1</h3>
-        </div>
-      </div> */}
+      </div>
       
       <div className="cart-empty">
         {cartItems.length === 0 && (

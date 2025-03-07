@@ -7,8 +7,10 @@ import {
   productTotalAmount,
   productTax,
   removeCartItem,
+  clearCart,
 } from "../features/cart/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { clearValues } from "../features/product/productSlice";
 
 const ShoppingCart = () => {
   const { cartItems, subTotal, totalAmount, tax } = useSelector(
@@ -25,83 +27,79 @@ const ShoppingCart = () => {
 
   return (
     <div className="cart">
-      <div className="cart-header">
+      <div className="cart-header" style={{height:"50px"}}>
         <div className="cart-title">
           <span>INVOICE</span>
         </div>
       </div>
-      
-      <div className="cart-empty">
-        {cartItems.length === 0 && (
-          <div className="cart-title">
-            <span>There are no products in the cart.</span>
-          </div>
-        )}
-      </div>
+      <div  style={{flex:1,overflowY:"auto"}}>
+        {cartItems ? (
+          cartItems.map((cart) => (
+            <div className="cart-items" key={cart.productId}>
+              <div className="image">
+                {cart.image ? (
+                  <img className="product-image" src={cart.image} alt="..." />
+                ) : (
+                  <img
+                    className="default-image"
+                    src={require("../images/product.png")}
+                    alt="..."
+                  />
+                )}
+              </div>
 
-      {cartItems ? (
-        cartItems.map((cart) => (
-          <div className="cart-items" key={cart.productId}>
-            <div className="image">
-              {cart.image ? (
-                <img className="product-image" src={cart.image} alt="..." />
-              ) : (
-                <img
-                  className="default-image"
-                  src={require("../images/product.png")}
-                  alt="..."
-                />
-              )}
-            </div>
+              <div className="info">
+                <h4>{cart.name}</h4>
 
-            <div className="info">
-              <h4>{cart.name}</h4>
+                <button
+                  className="remove-item"
+                  type="button"
+                  onClick={() => {
+                    dispatch(removeCartItem(cart.productId));
+                  }}
+                >
+                  X
+                </button>
 
-              <button
-                className="remove-item"
-                type="button"
-                onClick={() => {
-                  dispatch(removeCartItem(cart.productId));
-                }}
-              >
-                X
-              </button>
+                <div className="details">
+                  <div className="price">
+                    <p>$ {cart.price}</p>
+                  </div>
 
-              <div className="details">
-                <div className="price">
-                  <p>$ {cart.price}</p>
-                </div>
-
-                <div className="count">
-                  <button
-                    className="increment-btn"
-                    type="button"
-                    onClick={() => {
-                      dispatch(increase(cart.productId));
-                    }}
-                  >
-                    +
-                  </button>
-                  <span className="amount">{cart.quantity}</span>
-                  <button
-                    className="decrement-btn"
-                    type="button"
-                    onClick={() => {
-                      dispatch(decrease(cart.productId));
-                    }}
-                  >
-                    -
-                  </button>
+                  <div className="count">
+                    <button
+                      className="increment-btn"
+                      type="button"
+                      onClick={() => {
+                        dispatch(increase(cart.productId));
+                      }}
+                    >
+                      +
+                    </button>
+                    <span className="amount">{cart.quantity}</span>
+                    <button
+                      className="decrement-btn"
+                      type="button"
+                      onClick={() => {
+                        dispatch(decrease(cart.productId));
+                      }}
+                    >
+                      -
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <div>Products Loading...</div>
-      )}
+          ))
+        ) : (
+          <div>Products Loading...</div>
+        )}
+      </div>
 
-      <div className="total-card">
+      <div
+        className="total-card"
+        style={{ height: "270px", background: "white",textAlign:"center" }}
+      >
         <div className="total-items">
           <span className="items-count">Items ({cartItems.length})</span>
           <span className="items-price">$ {subTotal.toFixed(2)}</span>
@@ -117,7 +115,7 @@ const ShoppingCart = () => {
         </div>
 
         <div className="pay">
-          <button className="pay-btn" onClick={() => navigate("/cart")}>
+          <button className="pay-btn" onClick={() => dispatch(clearCart())}>
             Reset
           </button>
           &nbsp;&nbsp;
@@ -125,6 +123,8 @@ const ShoppingCart = () => {
             Pay Now
           </button>
         </div>
+        <br />
+        <span style={{fontWeight:"bold"}}>Copyright@2025</span>
       </div>
     </div>
   );

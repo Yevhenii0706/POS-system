@@ -3,7 +3,7 @@ const Footer = () => {
 
 
   return (
-    <div style={{position:"absolute",bottom:"0px"}}>
+    <div style={{position:"absolute",bottom:"0px",background:"grey",width:"100%"}}>
         123
     </div>
   );

@@ -33,8 +33,8 @@ const Cart = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(orderCreate(cartItems));
-    // dispatch(clearCart());
-    // deleteLocalStorageCart();
+    dispatch(clearCart());
+    deleteLocalStorageCart();
     navigate("/dashboard/orders");
   };
 

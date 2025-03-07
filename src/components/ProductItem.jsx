@@ -63,8 +63,8 @@ const ProductItem = ({ product }) => {
     //         />
     //       )}
     // <div className="product-cart">
-    <div class="product-card">
-      <div class="product-image">
+    <div className="product-card">
+      <div className="product-image">
         {product.image ? (
           <img className="product-image" src={product.image} alt="..." />
         ) : (
@@ -75,13 +75,13 @@ const ProductItem = ({ product }) => {
           />
         )}
       </div>
-      <div class="product-content">
-        <div class="product-name">{product.name}</div>
-        <div class="product-price">${product.price}</div>
-        <div class="product-description">
+      <div className="product-content">
+        <div className="product-name">{product.name}</div>
+        <div className="product-price">${product.price}</div>
+        <div className="product-description">
         {product.description}
         </div>
-        <button class="order-button" onClick={()=>{
+        <button className="order-button" onClick={()=>{
           addCart(product)
         }}>Order Now</button>
       </div>

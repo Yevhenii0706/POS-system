@@ -7,8 +7,10 @@ import {
   productTotalAmount,
   productTax,
   removeCartItem,
+  clearCart,
 } from "../features/cart/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { clearValues } from "../features/product/productSlice";
 
 const ShoppingCart = () => {
   const { cartItems, subTotal, totalAmount, tax } = useSelector(
@@ -25,12 +27,12 @@ const ShoppingCart = () => {
 
   return (
     <div className="cart">
-      <div className="cart-header">
+      <div className="cart-header" style={{height:"50px"}}>
         <div className="cart-title">
           <span>INVOICE</span>
         </div>
       </div>
-      <div  style={{flex:1,overflow:"auto"}}>
+      <div  style={{flex:1,overflowY:"auto"}}>
         {cartItems ? (
           cartItems.map((cart) => (
             <div className="cart-items" key={cart.productId}>
@@ -113,7 +115,7 @@ const ShoppingCart = () => {
         </div>
 
         <div className="pay">
-          <button className="pay-btn" onClick={() => navigate("/cart")}>
+          <button className="pay-btn" onClick={() => dispatch(clearCart())}>
             Reset
           </button>
           &nbsp;&nbsp;

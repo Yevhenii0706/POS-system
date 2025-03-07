@@ -6,6 +6,8 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import ManagementProduct from "./ManagementProduct";
 import Footer from "./Footer";
+import ManagementCompany from "./ManagementCompany";
+import ManagementUser from "./ManagementUser";
 
 export default function Manangement() {
   const [value, setValue] = React.useState("1");
@@ -25,8 +27,8 @@ export default function Manangement() {
           </TabList>
         </Box>
         <TabPanel value="1"><ManagementProduct/></TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
+        <TabPanel value="2"><ManagementCompany/> </TabPanel>
+        <TabPanel value="3"><ManagementUser/> </TabPanel>
       </TabContext>
       
     </Box>

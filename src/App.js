@@ -23,7 +23,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
             <Route
               path="/dashboard"
               element={
@@ -53,6 +52,7 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

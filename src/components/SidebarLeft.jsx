@@ -47,8 +47,12 @@ const SidebarLeft = () => {
           Cart
         </Link>
         <Link to="/reset">
-          <FaUserTag className="menu-icon" style={{textAlign: "center"}}/>
-          Reset Password
+          <FaUserTag className="menu-icon" style={{ textAlign: "center" }} />
+          Reset
+        </Link>
+        <Link to="/register">
+          <FaUserTag className="menu-icon" style={{ textAlign: "center" }} />
+          Add
         </Link>
       </div>
 

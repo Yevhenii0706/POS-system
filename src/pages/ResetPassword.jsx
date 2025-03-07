@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { login, reset, resetPass } from "../features/auth/authSlice";
+import { resetPass } from "../features/auth/authSlice";
 
 const ResetPassword = () => {
 
@@ -16,14 +16,15 @@ const ResetPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const message = useSelector((state) => state.auth.message);
-  console.log("message=====>", message)
+  const { user, success, error, message } = useSelector((state) => state.auth)
 
   useEffect(() => {
-
-    // navigate("/dashboard");
-
-  }, [navigate, dispatch]);
+    if (error) {
+      toast.error("message")
+    } else if (success || user) {
+      // navigate("/dashboard");
+    }
+  }, [user, success, error, message, navigate, dispatch]);
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

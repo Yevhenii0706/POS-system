@@ -69,7 +69,6 @@ export const resetPass = createAsyncThunk(
         toast("Confirm password!");
       }
     } catch (error) {
-      console.log("err ====>", error);
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
@@ -92,14 +91,12 @@ export const authSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.loading = false;
-        //state.user = action.payload
-        //addLocalStorageUser(action.payload)
         toast.success("user successfully registered");
       })
       .addCase(register.rejected, (state, action) => {
         state.loading = false;
         state.error = true;
-        state.message = action.payload;
+        state.message = action.payload.responseMessage;
         state.user = null;
       })
       .addCase(login.pending, (state) => {
@@ -118,7 +115,6 @@ export const authSlice = createSlice({
         state.error = true;
         state.message = action.payload.responseMessage;
         state.user = null;
-        // console.log("responseMessage----->", action.payload.responseMessage);
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
@@ -129,12 +125,11 @@ export const authSlice = createSlice({
         state.users = action.payload;
       })
       .addCase(resetPass.fulfilled, (state, action) => {
-        state.message = action.payload;
-        console.log(action.payload);
+        // state.message = action.payload;
       })
       .addCase(resetPass.rejected, (state, action) => {
-        state.message = action.response;
-        console.log("reject===>", action.payload);
+        // state.message = action.response;
+        // console.log("reject===>", action.payload);
       });
   },
 });

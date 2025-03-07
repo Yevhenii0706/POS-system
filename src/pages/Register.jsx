@@ -12,10 +12,10 @@ const Register = () => {
     password: "",
     firstName: "",
     lastName: "",
-    phoneNumber: 1111111111,
+    phoneNumber: "",
     role: "",
     address: "",
-    company: 11111111
+    company: "67b705e701a4e144f539ae10"
   })
 
   const { name, email, password, firstName, lastName, phoneNumber, role, address, company } = form
@@ -30,7 +30,7 @@ const Register = () => {
       toast.error(message)
     }
     if (success || user) {
-      navigate('/login')
+      navigate('/dashboard')
     }
     dispatch(reset())
   }, [error, success, user, message, navigate, dispatch])
@@ -45,9 +45,7 @@ const Register = () => {
     const userData = {
       username: name, email: email, password: password, first_name: firstName, last_name: lastName, phone_number: phoneNumber, role: role, address: address, companyId: company
     }
-
     dispatch(register(userData))
-    navigate('/login')
   }
 
   return (
@@ -100,14 +98,14 @@ const Register = () => {
             <input type="text" placeholder='address' name='address' value={address} onChange={onChange} />
           </div>
 
-          <div className='formInput'>
+          {/* <div className='formInput'>
             <label>Company</label>
             <input type="text" placeholder='Company' name='company' value={company} onChange={onChange} />
-          </div>
+          </div> */}
 
           <button type='submit' className='btn-grad'>Register</button>
 
-          <div className='home'><a href='/'>Go to home page</a></div>
+          <div className='home'><a href='/dashboard'>Go to home page</a></div>
         </form>
       </div>
     </>

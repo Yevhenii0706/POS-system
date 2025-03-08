@@ -30,11 +30,11 @@ const ManagementCompany = () => {
     companyId: "67b705e701a4e144f539ae10",
   });
 
-  const [value, setValue] = React.useState("1");
+  // const [value, setValue] = React.useState("1");
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
 
   const dispatch = useDispatch();
 

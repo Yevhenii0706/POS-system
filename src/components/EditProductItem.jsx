@@ -1,6 +1,5 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaEdit } from "react-icons/fa";
 import Backdrop from "@mui/material/Backdrop";
 import { addToCart } from "../features/cart/cartSlice";
 

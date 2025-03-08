@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import OrderPrint from "../components/OrderPrint";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { removeOrder } from "../features/order/orderSlice";
+// import { useNavigate } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { removeOrder } from "../features/order/orderSlice";
 
 const OrderItem = ({ order }) => {
-  const { user } = useSelector((state) => state.auth);
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
-  const deleteOrder = (order) => {
-    dispatch(removeOrder(order));
-    navigate("/dashboard");
-  };
+  // const deleteOrder = (order) => {
+  //   dispatch(removeOrder(order));
+  //   navigate("/dashboard");
+  // };
   // <div className="order-details" key={order._id}>
   //   <div className="order-title">
   //     <span className="order-id">Order Id: # {order._id}</span>
@@ -62,7 +61,7 @@ const OrderItem = ({ order }) => {
         </div>
         <div className="toggle-btn">
           {isDetailsVisible ? "▲" : "▼"}
-          <OrderPrint  order={order} />
+          <OrderPrint order={order} />
         </div>
       </div>
       {isDetailsVisible && (

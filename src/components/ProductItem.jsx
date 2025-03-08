@@ -1,10 +1,10 @@
 import { React, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { FaEdit } from "react-icons/fa";
+// import { useNavigate } from "react-router-dom";
+// import { FaEdit } from "react-icons/fa";
 import { addToCart } from "../features/cart/cartSlice";
 import {
-  setEditProduct,
-  removeProduct,
+  // setEditProduct,
+  // removeProduct,
 } from "../features/product/productSlice";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -15,18 +15,18 @@ import {
 
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const addCart = (product) => {
     dispatch(addToCart(product));
   };
 
-  const removeItem = (product) => {
-    dispatch(removeProduct(product));
-  };
+  // const removeItem = (product) => {
+  //   dispatch(removeProduct(product));
+  // };
 
   const { cartItems } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(productSubTotal());
@@ -34,23 +34,23 @@ const ProductItem = ({ product }) => {
     dispatch(productTotalAmount());
   }, [dispatch, cartItems]);
 
-  const setEdit = (product) => {
-    const { name, description, sku, price, stockLevel, qrCode } = product;
+  // const setEdit = (product) => {
+  //   const { name, description, sku, price, stockLevel, qrCode } = product;
 
-    dispatch(
-      setEditProduct({
-        name,
-        description,
-        sku,
-        price,
-        stockLevel,
-        qrCode,
-        editProductId: product.productId,
-      })
-    );
+  //   dispatch(
+  //     setEditProduct({
+  //       name,
+  //       description,
+  //       sku,
+  //       price,
+  //       stockLevel,
+  //       qrCode,
+  //       editProductId: product.productId,
+  //     })
+  //   );
 
-    navigate("/dashboard/form");
-  };
+  //   navigate("/dashboard/form");
+  // };
 
   return (
     // {product.image ? (
@@ -79,9 +79,9 @@ const ProductItem = ({ product }) => {
         <div className="product-name">{product.name}</div>
         <div className="product-price">${product.price}</div>
         <div className="product-description">
-        {product.description}
+          {product.description}
         </div>
-        <button className="order-button" onClick={()=>{
+        <button className="order-button" onClick={() => {
           addCart(product)
         }}>Order Now</button>
       </div>

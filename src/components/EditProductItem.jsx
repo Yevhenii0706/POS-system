@@ -1,12 +1,12 @@
 import { React, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
-import { addToCart } from "../features/cart/cartSlice";
+// import { addToCart } from "../features/cart/cartSlice";
 
-import {
-  setEditProduct,
-  removeProduct,
-} from "../features/product/productSlice";
+// import {
+//   setEditProduct,
+//   removeProduct,
+// } from "../features/product/productSlice";
 import { useSelector, useDispatch } from "react-redux";
 import {
   productSubTotal,
@@ -28,28 +28,28 @@ const style = {
 };
 const EditProductItem = ({ product }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [editModalOpen, setEditModalOpen] = useState(false);
-  const [removeModalOpen, setRemoveModalOpen] = useState(false);
+  // const [removeModalOpen, setRemoveModalOpen] = useState(false);
 
-  const addCart = (product) => {
-    dispatch(addToCart(product));
-  };
+  // const addCart = (product) => {
+  //   dispatch(addToCart(product));
+  // };
 
-  const removeItem = (product) => {
-    dispatch(removeProduct(product));
-  };
+  // const removeItem = (product) => {
+  //   dispatch(removeProduct(product));
+  // };
 
   const editModal = () => {
     setEditModalOpen(true);
   };
 
-  const removeModal = () => {
-    setRemoveModalOpen(true);
-  };
+  // const removeModal = () => {
+  //   setRemoveModalOpen(true);
+  // };
 
   const { cartItems } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(productSubTotal());
@@ -57,23 +57,23 @@ const EditProductItem = ({ product }) => {
     dispatch(productTotalAmount());
   }, [dispatch, cartItems]);
 
-  const setEdit = (product) => {
-    const { name, description, sku, price, stockLevel, qrCode } = product;
+  // const setEdit = (product) => {
+  //   const { name, description, sku, price, stockLevel, qrCode } = product;
 
-    dispatch(
-      setEditProduct({
-        name,
-        description,
-        sku,
-        price,
-        stockLevel,
-        qrCode,
-        editProductId: product.productId,
-      })
-    );
+  //   dispatch(
+  //     setEditProduct({
+  //       name,
+  //       description,
+  //       sku,
+  //       price,
+  //       stockLevel,
+  //       qrCode,
+  //       editProductId: product.productId,
+  //     })
+  //   );
 
-    navigate("/dashboard/form");
-  };
+  //   navigate("/dashboard/form");
+  // };
 
   /* <div className="product-cart-detail">
         <h4>{product.name}</h4>
@@ -155,7 +155,7 @@ const EditProductItem = ({ product }) => {
           <button
             className="order-button"
             onClick={() => {
-              removeModal(product);
+              // removeModal(product);
             }}
           >
             Remove

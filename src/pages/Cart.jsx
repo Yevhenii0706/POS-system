@@ -15,10 +15,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteLocalStorageCart } from "../utils/localStorage";
 
 const Cart = () => {
-  const { cartItems, subTotal, totalAmount, tax } = useSelector(
+  const { cartItems } = useSelector(
     (state) => state.cart
   );
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

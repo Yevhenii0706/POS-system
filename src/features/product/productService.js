@@ -4,7 +4,7 @@ import {
   getLocalStorageToken,
 } from "../../utils/localStorage";
 import { clearCart } from "../cart/cartSlice";
-import axios from "axios";
+// import axios from "axios";
 
 const token = getLocalStorageToken();
 httpRequest.defaults.headers.common["Authorization"] = token;

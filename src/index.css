@@ -1217,7 +1217,7 @@ select:focus {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: 0.3s;
 }
-.cart-items: {
+.cart-items {
   transition: 0.5s;
 }
 

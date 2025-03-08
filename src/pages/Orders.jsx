@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getOrders } from "../features/order/orderSlice";
 import OrderItem from "../components/OrderItem";
-import Footer from "./Footer";
 
 const Orders = () => {
   const { orders } = useSelector((state) => state.order);

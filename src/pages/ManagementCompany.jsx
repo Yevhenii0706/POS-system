@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import { Box, Fade, Modal } from "@mui/material";
-import EditProductItem from "../components/EditProductItem";
-import Backdrop from "@mui/material/Backdrop";
 
+import Backdrop from "@mui/material/Backdrop";
 
 const style = {
   position: "absolute",
@@ -77,13 +76,8 @@ const ManagementCompany = () => {
         }}
         style={{ marginLeft: 0, width: "150px" }}
       >
-        Add Product
+        Add Company
       </button>
-      <div className="product-grid" id="product-grid">
-        {products.map((product) => (
-          <EditProductItem key={product.productId} product={product} />
-        ))}
-      </div>
 
       <Modal
         aria-labelledby="transition-modal-title"

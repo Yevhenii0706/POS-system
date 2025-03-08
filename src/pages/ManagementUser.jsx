@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 const ManagementUser = () => {
   return (
     <div className="">
@@ -6,7 +6,7 @@ const ManagementUser = () => {
         className="order-button"
         style={{ marginLeft: 0, width: "150px" }}
       >
-        Add User
+        <a href="/register">Add User</a>
       </button>
     </div>
   );

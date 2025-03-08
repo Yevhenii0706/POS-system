@@ -18,6 +18,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
 const ManagementProduct = () => {
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);

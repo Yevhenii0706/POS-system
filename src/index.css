@@ -281,41 +281,40 @@ h1 {
 /**********CONTAINER*************/
 .container {
   display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   padding: 10px;
 }
 
 .sidebarLeft {
-  flex-basis: 10px;
+  flex-basis: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   background-color: rgb(249, 247, 247);
-  padding: 15px 0 5px 0;
+  padding: 15px 0 15px 0;
   border: 1px solid rgb(201, 201, 201);
   border-radius: 30px 0 0 30px;
 }
 
 .main-content {
-  /* flex-basis: 75%; */
   flex: 1;
   background-color: rgb(237, 235, 235);
-  padding: 20px;
+  padding: 15px;
+  width: inherit;
   height: 100%;
-  overflow: auto;
   border-top: 1px solid rgb(216, 216, 216);
   border-bottom: 1px solid rgb(216, 216, 216);
   border-right: 1px solid rgb(222, 219, 219);
   box-shadow: 0px 0px 1px 1px #6b6464c2;
+  overflow-y: auto;
 }
 
 .sidebarRight {
-  /* flex-basis: 20%; */
-  min-width: 400px;
-  max-width: 400px;
+  flex-basis: 40%;
+  min-width: 300px;
+  max-width: 530px;
   max-height: 98vh;
   background-color: rgb(249, 247, 247);
   border-radius: 0 30px 30px 0;
@@ -403,6 +402,10 @@ a {
   height: 100%;
   background-color: rgb(239, 239, 239);
   border-radius: 0 30px 0 0;
+}
+
+.cart-header {
+  width: 100% !important;
 }
 
 .cart .cart-header {
@@ -613,14 +616,16 @@ a {
 
 /***************MAIN CONTENT******************/
 .statistic-layout {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  padding-left: 20px;
 }
 
 .main-content .statistics {
-  width: 15%;
+  width: 30%;
   font-size: 30px;
-  min-width: 200px;
+  min-width: 100px;
   background-color: white;
   border-radius: 30px;
   padding: 7px 4px;
@@ -635,7 +640,7 @@ a {
 
 .main-content .statistics:hover {
   scale: 1.1;
-  background-color: #fffff0f;
+  background-color: #ffffff;
 }
 
 .main-content .statistics .statistic-title {
@@ -751,16 +756,19 @@ a {
 }
 
 .product-area {
-  margin-top: 5px;
   display: flex;
-  gap: 10px;
-  box-shadow: 0px 0px 3px 2px #00000044;
+  margin-top: 5px;
+  width: 100%;
+  height: 94%;
   border-radius: 10px;
+  box-shadow: 0px 0px 3px 2px #00000044;
+  gap: 10px;
 }
 
 .product-grid {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 /* /////////////////////// */
@@ -769,7 +777,7 @@ a {
   padding: 15px 0px 5px 3px !important;
   background-color: #fff;
   border-radius: 8px;
-  min-width: 250px;
+  min-width: 20%;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   list-style-type: none;
   margin: 0;
@@ -871,7 +879,7 @@ a {
 
 /* Hover effect for tree nodes */
 .treeview li:hover {
-  background-color: #e8f5e9;
+  background-color: hsl(125, 39%, 94%);
   transform: translateX(5px);
 }
 
@@ -884,6 +892,8 @@ a {
 /* /// */
 
 .company-category {
+  width: 20%;
+  min-width: 220px;
   display: flex;
   font-size: 20px;
   box-shadow: 3px 0px 6px #6a6666;
@@ -926,9 +936,11 @@ a {
 
 /* Product Content Section */
 .product-content {
+  width: 100%;
   text-align: left;
   padding-top: 15px;
   padding-left: 10px;
+  overflow-y: auto;
 }
 
 /* Product Name */
@@ -1163,7 +1175,13 @@ select:focus {
 /************************CART****************************/
 .cart-page {
   background-color: rgb(248, 248, 248);
+  width: 100%;
 }
+
+.cart-page .cart-container {
+  width: 100%;
+}
+
 .cart-container .cart-header {
   width: 100%;
   display: flex;
@@ -1177,6 +1195,10 @@ select:focus {
   font-size: 30px;
   font-weight: 600;
   color: #fff;
+}
+
+.cart-container #shop-container {
+  width: 100%;
 }
 
 .cart-container .cart-header .navigation {
@@ -1341,8 +1363,10 @@ tbody tr:hover {
   background-color: #c44236;
   transform: scale(1.05);
 }
-#shop-container {
+
+.shop-container {
   display: flex;
+  width: inherit;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -1351,9 +1375,9 @@ tbody tr:hover {
   gap: 20px;
 }
 
-#cart table {
-  /*width: 50%;*/
+#cart {
   width: 100%;
+  /* width: 100%; */
   border-collapse: collapse;
   table-layout: fixed;
   white-space: nowrap;
@@ -1720,3 +1744,16 @@ tbody tr:hover {
 .invoice .invoice_right .terms {
   margin: 0;
 }
+
+@media (max-width: 1024px) {
+  .sidebarRight {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .company-category {
+    display: none;
+  }
+}
+

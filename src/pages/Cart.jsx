@@ -63,93 +63,94 @@ const Cart = () => {
             <li className="cart-items">Cart Items: {cartItems.length}</li>
           </ul>
         </header>
-      </div>
-
-      <div id="shop-container">
-        <div
-          style={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
-        >
-          <button className="pay-button" onClick={handleSubmit}>
-            Pay Now
-          </button>
-        </div>
-        <div id="cart">
-          <table style={{ width: "100%" }}>
-            <thead>
-              <tr>
-                <td></td>
-                <td>Image</td>
-                <td>Product</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td>Subtotal</td>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems ? (
-                cartItems.map((product) => (
-                  <tr key={product.productId}>
-                    <td>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          dispatch(removeCartItem(product.productId));
-                        }}
-                      >
-                        <FaTimes />
-                      </button>
-                    </td>
-                    <td>
-                      {product.image ? (
-                        <img
-                          className="product-image"
-                          src={product.image}
-                          alt="..."
-                        />
-                      ) : (
-                        <img
-                          className="default-image"
-                          src={require("../images/product.png")}
-                          alt="..."
-                        />
-                      )}
-                    </td>
-                    <td>{product.name}</td>
-                    <td>$ {product.price.toFixed(2)}</td>
-                    <td>
-                      <div className="count">
+        <div className="shop-container">
+          <div
+            style={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
+          >
+            <button className="pay-button" onClick={handleSubmit}>
+              Pay Now
+            </button>
+          </div>
+          <div id="cart">
+            <table style={{
+              width: "inherit"
+            }}>
+              < thead >
+                <tr>
+                  <td></td>
+                  <td>Image</td>
+                  <td>Product</td>
+                  <td>Price</td>
+                  <td>Quantity</td>
+                  <td>Subtotal</td>
+                </tr>
+              </thead>
+              <tbody>
+                {cartItems ? (
+                  cartItems.map((product) => (
+                    <tr key={product.productId}>
+                      <td>
                         <button
-                          className="increment-btn"
                           type="button"
                           onClick={() => {
-                            dispatch(increase(product.productId));
+                            dispatch(removeCartItem(product.productId));
                           }}
                         >
-                          +
+                          <FaTimes />
                         </button>
-                        <span className="amount">{product.quantity}</span>
-                        <button
-                          className="decrement-btn"
-                          type="button"
-                          onClick={() => {
-                            dispatch(decrease(product.productId));
-                          }}
-                        >
-                          -
-                        </button>
-                      </div>
-                    </td>
-                    <td>$ {(product.price * product.quantity).toFixed(2)}</td>
-                  </tr>
-                ))
-              ) : (
-                <div>Products Loading...</div>
-              )}
-            </tbody>
-          </table>
-        </div>
+                      </td>
+                      <td>
+                        {product.image ? (
+                          <img
+                            className="product-image"
+                            src={product.image}
+                            alt="..."
+                          />
+                        ) : (
+                          <img
+                            className="default-image"
+                            src={require("../images/product.png")}
+                            alt="..."
+                          />
+                        )}
+                      </td>
+                      <td>{product.name}</td>
+                      <td>$ {product.price.toFixed(2)}</td>
+                      <td>
+                        <div className="count">
+                          <button
+                            className="increment-btn"
+                            type="button"
+                            onClick={() => {
+                              dispatch(increase(product.productId));
+                            }}
+                          >
+                            +
+                          </button>
+                          <span className="amount">{product.quantity}</span>
+                          <button
+                            className="decrement-btn"
+                            type="button"
+                            onClick={() => {
+                              dispatch(decrease(product.productId));
+                            }}
+                          >
+                            -
+                          </button>
+                        </div>
+                      </td>
+                      <td>$ {(product.price * product.quantity).toFixed(2)}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <div>Products Loading...</div>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div >
       </div>
-    </div>
+    </div >
   );
 };
 

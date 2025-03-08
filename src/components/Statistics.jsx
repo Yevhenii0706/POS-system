@@ -5,7 +5,6 @@ import { allUsers } from "../features/auth/authSlice";
 
 const Statistics = () => {
   const dispatch = useDispatch();
-  const { categories } = useSelector((state) => state.category);
   const { products } = useSelector((state) => state.product);
   const { orders } = useSelector((state) => state.order);
   const { users } = useSelector((state) => state.auth);

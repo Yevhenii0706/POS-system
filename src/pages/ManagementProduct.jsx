@@ -5,9 +5,8 @@ import { getProducts, productCreate } from "../features/product/productSlice";
 import ClipLoader from "react-spinners/ClipLoader";
 import EditProductItem from "../components/EditProductItem";
 import Backdrop from "@mui/material/Backdrop";
-import { Box, Fade, Modal, Typography } from "@mui/material";
+import { Box, Fade, Modal } from "@mui/material";
 
-import { FaPray } from "react-icons/fa";
 const style = {
   position: "absolute",
   top: "50%",
@@ -71,7 +70,7 @@ const ManagementProduct = () => {
     // dispatch(clearValues());
   };
   return (
-    
+
     <div className="product-area">
       <div className="company-category">
         <ul className="treeview">

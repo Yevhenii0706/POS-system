@@ -5,7 +5,6 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import ManagementProduct from "./ManagementProduct";
-import Footer from "./Footer";
 import ManagementCompany from "./ManagementCompany";
 import ManagementUser from "./ManagementUser";
 
@@ -17,7 +16,7 @@ export default function Manangement() {
   };
 
   return (
-    <Box sx={{ width: "100%", typography: "body1" }}>
+    <Box sx={{ width: "103%", height: "100%", overflow: "auto", typography: "body1" }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -26,11 +25,11 @@ export default function Manangement() {
             <Tab label="Users" value="3" />
           </TabList>
         </Box>
-        <TabPanel value="1"><ManagementProduct/></TabPanel>
-        <TabPanel value="2"><ManagementCompany/> </TabPanel>
-        <TabPanel value="3"><ManagementUser/> </TabPanel>
+        <TabPanel sx={{ height: "102%" }} value="1"><ManagementProduct /></TabPanel>
+        <TabPanel value="2"><ManagementCompany /> </TabPanel>
+        <TabPanel value="3"><ManagementUser /> </TabPanel>
       </TabContext>
-      
+
     </Box>
   );
 }

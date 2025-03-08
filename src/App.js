@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className="App">
+        <div className="App" style={{ width: "100%", height: "100%" }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />

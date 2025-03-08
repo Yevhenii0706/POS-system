@@ -10,7 +10,6 @@ import {
   clearCart,
 } from "../features/cart/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { clearValues } from "../features/product/productSlice";
 
 const ShoppingCart = () => {
   const { cartItems, subTotal, totalAmount, tax } = useSelector(

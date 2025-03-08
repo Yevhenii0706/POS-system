@@ -7,23 +7,21 @@ import Footer from "./Footer";
 
 const Orders = () => {
   const { orders } = useSelector((state) => state.order);
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getOrders());
   }, [dispatch]);
- 
+
   console.log(orders)
-  
+
   return (
     <>
       {orders.invoices
         ? orders.invoices.map((order) => <OrderItem key={order._id} order={order} />)
         : "Loading..."}
-        
-      <Footer />
     </>
   );
 };
- 
+
 export default Orders;

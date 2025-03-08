@@ -36,9 +36,9 @@ const Products = () => {
     <div className="product-area">
       <div className="company-category">
         <ul className="treeview">
-          <span style={{fontSize: "30px",color: "#800063",ntWeight: "bold"}}>Company</span>
-          <br/>
-          <br/>
+          <span style={{ fontSize: "30px", color: "#800063", ntWeight: "bold" }}>Company</span>
+          <br />
+          <br />
           <li>
             <input type="checkbox" id="node1" />
             <label for="node1">TechVision Solutions</label>
@@ -51,9 +51,6 @@ const Products = () => {
             <ProductItem key={product.productId} product={product} />
           ))}
         </div>
-
-        
-        
       </div>
     </div>
   );

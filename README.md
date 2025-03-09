@@ -16,16 +16,46 @@
 ![Typical pages of POS system]
 
 (public/images/home.jpg)
+<picture>
+    <source srcset="public/images/home.png"  
+            media="(prefers-color-scheme: dark)">
+    <img src="public/images/home.jpg" alt="author">
+</picture>
 
 (public/images/Login.jpg)
+<picture>
+    <source srcset="public/images/Login.png"  
+            media="(prefers-color-scheme: dark)">
+    <img src="public/images/home.jpg" alt="author">
+</picture>
 
 (public/images/main.jpg)
+<picture>
+    <source srcset="public/images/main.png"  
+            media="(prefers-color-scheme: dark)">
+    <img src="public/images/home.jpg" alt="author">
+</picture>
 
 (public/images/cart.jpg)
+<picture>
+    <source srcset="public/images/cart.png"  
+            media="(prefers-color-scheme: dark)">
+    <img src="public/images/home.jpg" alt="author">
+</picture>
 
 (public/images/print.jpg)
+<picture>
+    <source srcset="public/images/print.png"  
+            media="(prefers-color-scheme: dark)">
+    <img src="public/images/home.jpg" alt="author">
+</picture>
 
 (public/images/manage.jpg)
+<picture>
+    <source srcset="public/images/manage.png"  
+            media="(prefers-color-scheme: dark)">
+    <img src="public/images/home.jpg" alt="author">
+</picture>
 
 **Live Demo:** will update soon
 
@@ -41,6 +71,3 @@
 - **Management**
 - **Print Management**
 - **Reports**
-
-# License
-**[Creative Commons Attribution 4.0	cc-by-4.0](https://inventory-r06h.onrender.com)**

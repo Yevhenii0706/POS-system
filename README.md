@@ -11,7 +11,8 @@
 
 # Admin Credentials
 
-> Site URL : https://pos-system-alina.netlify.app/
+> Site URL : https://alinakazi-pos-system.netlify.app/
+<br/>
 > Email: alinatest79@gmail.com || Password: securePassword123$
 
 ## Demo

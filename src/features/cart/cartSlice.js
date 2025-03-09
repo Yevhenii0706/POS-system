@@ -22,6 +22,8 @@ export const cartSlice = createSlice({
   reducers: {
     clearCart: (state) => {
       state.cartItems = [];
+      localStorage.setItem("tax", 0);
+      state.setTax = 0;
     },
     addToCart: (state, action) => {
       let cartIndex = state.cartItems.findIndex(
@@ -55,10 +57,14 @@ export const cartSlice = createSlice({
     increaseTax: (state, action) => {
       state.setTax = state.setTax + 1;
       localStorage.setItem("tax", state.setTax);
+      const productTax = (state.setTax / 100) * state.subTotal;
+      state.tax = productTax;
     },
     decreaseTax: (state, action) => {
       state.setTax = state.setTax - 1;
       localStorage.setItem("tax", state.setTax);
+      const productTax = (state.setTax / 100) * state.subTotal;
+      state.tax = productTax;
     },
     increase: (state, action) => {
       const product = state.cartItems.find(

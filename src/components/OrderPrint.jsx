@@ -10,6 +10,8 @@ const OrderPrint = ({ order }) => {
     // onAfterPrint: () => alert("print success"),
   });
 
+  const tax = localStorage.getItem("tax");
+
   return (
     <>
       <div style={{ display: "none" }}>
@@ -113,7 +115,7 @@ const OrderPrint = ({ order }) => {
                   <div className="i_row">
                     <div className="i_col w_50">
                       <p>Sub Total:</p>
-                      <p>Tax {order.tax ? order.tax : 0}%:</p>
+                      <p>Tax {tax ? tax : 0}%:</p>
                       <p>TOTAL:</p>
                     </div>
                     <div className="i_col w_50 text_right">

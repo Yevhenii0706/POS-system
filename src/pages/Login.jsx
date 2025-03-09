@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, reset } from "../features/auth/authSlice";
 
@@ -77,7 +77,9 @@ const Login = () => {
             Log In
           </button>
           <div className="home">
-            <a href="/">Go to home page</a>
+            <Link to="/">
+              Go to home page
+            </Link>
           </div>
           <div >
             <p style={{ textAlign: "center", marginLeft: "auto", marginRight: "auto", textDecoration: "underline", fontSize: "15px", color: "purple" }}>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from 'react-redux'
 import { register, reset } from '../features/auth/authSlice'
@@ -103,9 +103,14 @@ const Register = () => {
             <input type="text" placeholder='Company' name='company' value={company} onChange={onChange} />
           </div> */}
 
-          <button type='submit' className='btn-grad'>Register</button>
+          <button type='submit' className='btn-grad' >Register</button>
 
-          <div className='home'><a href='/dashboard'>Go to home page</a></div>
+          <div className='home' >
+            <Link to="/dashboard">
+              {/* <button onClick={navigate("/dashboard")}>Go to home page</button> */}
+              Go to home page
+            </Link>
+          </div>
         </form>
       </div>
     </>

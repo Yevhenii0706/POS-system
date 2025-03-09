@@ -17,7 +17,7 @@ const OrderPrint = ({ order }) => {
           <div className="invoice">
             <div className="invoice_left">
               <div className="i_logo">
-                <p>GK Market</p>
+                <p>Alina Kazi POS system</p>
               </div>
               <div className="i_to">
                 <div className="main_title">
@@ -101,7 +101,7 @@ const OrderPrint = ({ order }) => {
                         <p>{item.quantity}</p>
                       </div>
                       <div className="i_col w_15 text_center">
-                        <p>$ {item.amount/item.quantity}</p>
+                        <p>$ {item.amount / item.quantity}</p>
                       </div>
                       <div className="i_col w_15 text_right">
                         <p>$ {item.amount}</p>
@@ -118,7 +118,7 @@ const OrderPrint = ({ order }) => {
                     </div>
                     <div className="i_col w_50 text_right">
                       <p>$ {order.totalAmount}</p>
-                      <p>${order.tax?order.tax:0}:</p>
+                      <p>${order.tax ? order.tax : 0}:</p>
                       <p>${order.totalAmount}</p>
                     </div>
                   </div>

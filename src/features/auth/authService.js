@@ -8,6 +8,7 @@ const register = async (user) => {
 
 const login = async (user) => {
   const response = await httpRequest.post("/login", user);
+  console.log("loginErr ====> ", response);
   return response.data;
 };
 

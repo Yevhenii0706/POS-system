@@ -113,7 +113,9 @@ export const authSlice = createSlice({
         console.log("reject");
         state.loading = false;
         state.error = true;
-        state.message = action.payload.responseMessage;
+        state.message = action.payload
+          ? action.payload.responseMessage
+          : "Cors Error Occured. Please modify the backend or install Moesif extension!";
         state.user = null;
       })
       .addCase(logout.fulfilled, (state) => {

@@ -23,11 +23,12 @@ const ManagementCompany = () => {
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [formValue, setFormValue] = useState({
     name: "",
-    description: "",
-    price: 0,
-    sku: "",
-    stockLevel: 0,
-    companyId: "67b705e701a4e144f539ae10",
+    email: "",
+    phone: "",
+    address: "",
+    website: "",
+    industry: "",
+    foundedYear: ""
   });
 
   // const [value, setValue] = React.useState("1");
@@ -101,13 +102,13 @@ const ManagementCompany = () => {
                 X
               </button>
               <div className="add-form">
-                <h1 className="new-product">New Product</h1>
+                <h1 className="new-product">Create Company</h1>
               </div>
 
               <div className="form-input">
                 <input
                   type="text"
-                  placeholder="Product Name"
+                  placeholder="Company Name"
                   name="name"
                   value={formValue.name}
                   onChange={onChange}
@@ -116,19 +117,9 @@ const ManagementCompany = () => {
               <div className="form-input">
                 <input
                   type="text"
-                  placeholder="Product Description"
-                  name="description"
-                  value={formValue.description}
-                  onChange={onChange}
-                />
-              </div>
-
-              <div className="form-input">
-                <input
-                  type="number"
-                  placeholder="Product price"
-                  name="price"
-                  value={formValue.price}
+                  placeholder="Email"
+                  name="email"
+                  value={formValue.email}
                   onChange={onChange}
                 />
               </div>
@@ -136,19 +127,9 @@ const ManagementCompany = () => {
               <div className="form-input">
                 <input
                   type="text"
-                  placeholder="Product sku"
-                  name="sku"
-                  value={formValue.sku}
-                  onChange={onChange}
-                />
-              </div>
-
-              <div className="form-input">
-                <input
-                  type="number"
-                  placeholder="Product stockLevel"
-                  name="stockLevel"
-                  value={formValue.stockLevel}
+                  placeholder="Phone Number"
+                  name="phone"
+                  value={formValue.phone}
                   onChange={onChange}
                 />
               </div>
@@ -156,15 +137,46 @@ const ManagementCompany = () => {
               <div className="form-input">
                 <input
                   type="text"
-                  placeholder="company"
-                  name="companyId"
+                  placeholder="Address"
+                  name="address"
+                  value={formValue.address}
+                  onChange={onChange}
+                />
+              </div>
+
+              <div className="form-input">
+                <input
+                  type="text"
+                  placeholder="website"
+                  name="website"
+                  value={formValue.website}
+                  onChange={onChange}
+                />
+              </div>
+
+              <div className="form-input">
+                <input
+                  type="text"
+                  placeholder="industry"
+                  name="industry"
                   disabled
-                  value={formValue.companyId}
+                  value={formValue.industry}
+                  onChange={onChange}
+                />
+              </div>
+
+              <div className="form-input">
+                <input
+                  type="text"
+                  placeholder="foundedYear"
+                  name="foundedYear"
+                  disabled
+                  value={formValue.founedYear}
                   onChange={onChange}
                 />
               </div>
               <div className="form-input">
-                <button className="product-btn">Add Product</button>
+                <button className="product-btn">Add Company</button>
               </div>
             </form>
           </Box>

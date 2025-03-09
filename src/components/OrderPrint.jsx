@@ -101,10 +101,10 @@ const OrderPrint = ({ order }) => {
                         <p>{item.quantity}</p>
                       </div>
                       <div className="i_col w_15 text_center">
-                        <p>$ {item.amount / item.quantity}</p>
+                        <p> {item.amount / item.quantity}</p>
                       </div>
                       <div className="i_col w_15 text_right">
-                        <p>$ {item.amount}</p>
+                        <p> {item.amount}</p>
                       </div>
                     </div>
                   ))}
@@ -113,13 +113,13 @@ const OrderPrint = ({ order }) => {
                   <div className="i_row">
                     <div className="i_col w_50">
                       <p>Sub Total:</p>
-                      <p>Tax 8%:</p>
+                      <p>Tax {order.tax ? order.tax : 0}%:</p>
                       <p>TOTAL:</p>
                     </div>
                     <div className="i_col w_50 text_right">
-                      <p>$ {order.totalAmount}</p>
-                      <p>${order.tax ? order.tax : 0}:</p>
-                      <p>${order.totalAmount}</p>
+                      <p> {order.totalAmount}</p>
+                      <p>{order.tax ? order.tax : 0}:</p>
+                      <p>{order.totalAmount}</p>
                     </div>
                   </div>
                   <div className="i_row grand_total_wrap">
@@ -127,7 +127,7 @@ const OrderPrint = ({ order }) => {
                       <p>GRAND TOTAL:</p>
                     </div>
                     <div className="i_col w_50 text_right">
-                      <p>${order.totalAmount}</p>
+                      <p>{order.totalAmount}</p>
                     </div>
                   </div>
                 </div>

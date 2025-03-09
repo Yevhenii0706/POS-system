@@ -28,7 +28,7 @@ const OrderItem = ({ order }) => {
   //     </span>
 
   //     <span className="order-price-detail">
-  //       <span className="order-price">$ {order.totalAmount.toFixed(2)}</span>
+  //       <span className="order-price"> {order.totalAmount.toFixed(2)}</span>
   //     </span>
   //   </div>
 
@@ -55,7 +55,7 @@ const OrderItem = ({ order }) => {
         <div>
           <div>{order.customerName}</div>
           <span>
-            {order.products.length} Items ${order.totalAmount}{" "}
+            {order.products.length} Items {order.totalAmount}{" "}
             {new Date(order.invoiceDate).toLocaleDateString()}
           </span>
         </div>
@@ -82,7 +82,7 @@ const OrderItem = ({ order }) => {
                   <div className="product-info">
                     <div className="product-name">{prod.productId}</div>
                     <div className="product-price">
-                      {prod.quantity} ${prod.amount}
+                      {prod.quantity} {prod.amount}
                     </div>
                   </div>
                 </div>

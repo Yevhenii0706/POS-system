@@ -8,11 +8,13 @@ import {
   productTax,
   removeCartItem,
   clearCart,
+  decreaseTax,
+  increaseTax,
 } from "../features/cart/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const ShoppingCart = () => {
-  const { cartItems, subTotal, totalAmount, tax } = useSelector(
+  const { cartItems, subTotal, totalAmount, tax, setTax } = useSelector(
     (state) => state.cart
   );
   const navigate = useNavigate();
@@ -62,7 +64,7 @@ const ShoppingCart = () => {
 
                 <div className="details">
                   <div className="price">
-                    <p>$ {cart.price}</p>
+                    <p> {cart.price}</p>
                   </div>
 
                   <div className="count">
@@ -101,16 +103,36 @@ const ShoppingCart = () => {
       >
         <div className="total-items">
           <span className="items-count">Items ({cartItems.length})</span>
-          <span className="items-price">$ {subTotal.toFixed(2)}</span>
+          <span className="items-price">{subTotal.toFixed(2)}</span>
         </div>
         <div className="item-taxs">
-          <span className="item-tax">Tax (%8)</span>
-          <span className="item-tax-price">$ {tax.toFixed(2)}</span>
+          <div className="count">
+            <button
+              className="increment-btn"
+              type="button"
+              onClick={() => {
+                dispatch(increaseTax());
+              }}
+            >
+              +
+            </button>
+            <span className="item-tax">Tax (%{setTax})</span>
+            <button
+              className="decrement-btn"
+              type="button"
+              onClick={() => {
+                dispatch(decreaseTax());
+              }}
+            >
+              -
+            </button>
+          </div>
+          <span className="item-tax-price"> {tax.toFixed(2)}</span>
         </div>
         <div className="divider"></div>
         <div className="total">
           <span className="total-text">Total </span>
-          <span className="total-item-price">$ {totalAmount.toFixed(2)}</span>
+          <span className="total-item-price"> {totalAmount.toFixed(2)}</span>
         </div>
 
         <div className="pay">

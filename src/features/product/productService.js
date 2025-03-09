@@ -36,7 +36,7 @@ const getProducts = async () => {
   //   headers: {
   //     Accept: "application/json",
   //     "Content-Type": "application/json",
-  //     Authorization: `Bearer ${token}`, // Ensure the token has the "Bearer" prefix
+  //     Authorization: `Bearer {token}`, // Ensure the token has the "Bearer" prefix
   //   },
   //   data: {
   //     mode: "raw",

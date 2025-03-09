@@ -77,7 +77,7 @@ const ProductItem = ({ product }) => {
       </div>
       <div className="product-content">
         <div className="product-name">{product.name}</div>
-        <div className="product-price">${product.price}</div>
+        <div className="product-price">{product.price}</div>
         <div className="product-description">
           {product.description}
         </div>
@@ -89,7 +89,7 @@ const ProductItem = ({ product }) => {
 
     /* <div className="product-cart-detail">
         <h4>{product.name}</h4>
-        <p className="product-price">$ {product.price}</p>
+        <p className="product-price"> {product.price}</p>
         <span className="stock-status">
           <span className="stock">{product.stock} stock</span>
           <span className="available">available</span>

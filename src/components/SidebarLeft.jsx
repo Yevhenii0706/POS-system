@@ -9,10 +9,15 @@ import {
   FaUserTag,
   FaPlus,
 } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 
 const SidebarLeft = () => {
+
+  const user = useSelector((state) => state.auth.user);
+
+  console.log("user === > ", user);
+
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -34,10 +39,13 @@ const SidebarLeft = () => {
           <FaShopify className="menu-icon" />
           Orders
         </Link>
-        <Link to="/dashboard/manage">
-          <FaWpforms className="menu-icon" />
-          Manange
-        </Link>
+        {(user.role === "admin") ? (
+          <Link to="/dashboard/manage">
+            <FaWpforms className="menu-icon" />
+            Manange
+          </Link>
+        ) : ""}
+
         <Link to="/cart">
           <FaShoppingCart className="menu-icon" />
           Cart

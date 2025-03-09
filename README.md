@@ -10,40 +10,42 @@
 
 
 # Admin Credentials
+
+> Site URL : https://pos-system-alina.netlify.app/
 > Email: alinatest79@gmail.com || Password: securePassword123$
 
 ## Demo
-![Typical pages of POS system]
+Typical pages of POS system
 
-(public/images/home.jpg)
+### Homepage
 <picture>
     <source srcset="public/images/home.png"  
             media="(prefers-color-scheme: dark)">
     <img src="public/images/home.jpg" alt="author">
 </picture>
 
-(public/images/Login.jpg)
+###  LoginPage
 <picture>
     <source srcset="public/images/Login.png"  
             media="(prefers-color-scheme: dark)">
     <img src="public/images/home.jpg" alt="author">
 </picture>
 
-(public/images/main.jpg)
+### MainPage
 <picture>
     <source srcset="public/images/main.png"  
             media="(prefers-color-scheme: dark)">
     <img src="public/images/home.jpg" alt="author">
 </picture>
 
-(public/images/cart.jpg)
+### CartPage
 <picture>
     <source srcset="public/images/cart.png"  
             media="(prefers-color-scheme: dark)">
     <img src="public/images/home.jpg" alt="author">
 </picture>
 
-(public/images/print.jpg)
+### OrderPrintPage
 <picture>
     <source srcset="public/images/print.png"  
             media="(prefers-color-scheme: dark)">
@@ -66,8 +68,5 @@
 - **Company Management**
 - **User Management (Roles & Permissions)**
 - **Order Management**
-- **Make Quotation & Send Via Email**
-- **Purchase Management**
-- **Management**
 - **Print Management**
 - **Reports**

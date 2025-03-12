@@ -20,7 +20,7 @@ const style = {
 
 const ManagementCompany = () => {
   const loading = useSelector((state) => state.product.loading);
-  const products = useSelector((state) => state.product.products);
+  // const products = useSelector((state) => state.product.products);
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [formValue, setFormValue] = useState({
     name: "",
@@ -45,7 +45,7 @@ const ManagementCompany = () => {
     const value = e.target.value;
     setFormValue({ ...formValue, [name]: value });
   };
-  useEffect(() => {}, [dispatch]);
+  useEffect(() => { }, [dispatch]);
 
   const override = {
     display: "block",

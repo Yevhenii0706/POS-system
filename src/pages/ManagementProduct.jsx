@@ -152,7 +152,7 @@ const ManagementProduct = (props) => {
                 </button>
                 <div className="add-form">
                   <h1 className="new-product">
-                    {editable == true ? "Edit" : "Add"} Product
+                    {editable === true ? "Edit" : "Add"} Product
                   </h1>
                 </div>
 

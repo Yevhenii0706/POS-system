@@ -28,7 +28,6 @@ const ManagementProduct = (props) => {
   const products = useSelector((state) => state.product.products);
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editable, setEditable] = useState(false);
-  // const [editableProduct, setEditableProduct] = useState([]);
   const [formValue, setFormValue] = useState({
     name: "",
     description: "",
@@ -38,11 +37,6 @@ const ManagementProduct = (props) => {
     companyId: "67b705e701a4e144f539ae10",
   });
 
-  // const [value, setValue] = React.useState("1");
-
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
 
   const dispatch = useDispatch();
 
@@ -88,7 +82,6 @@ const ManagementProduct = (props) => {
       dispatch(getProducts());
     }
     setAddModalOpen(false);
-    // dispatch(clearValues());
   };
   return (
     <div className="product-area">
@@ -200,7 +193,6 @@ const ManagementProduct = (props) => {
                     type="number"
                     placeholder="Product stockLevel"
                     name="stockLevel"
-                    // defaultValue={editableProduct.stockLevel}
                     value={formValue.stockLevel}
                     onChange={onChange}
                   />

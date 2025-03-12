@@ -30,7 +30,6 @@ const Register = () => {
       toast.error(message)
     }
     if (success || user) {
-      // navigate('/dashboard')
     }
     dispatch(reset())
   }, [error, success, user, message, navigate, dispatch])
@@ -98,16 +97,10 @@ const Register = () => {
             <input type="text" placeholder='address' name='address' value={address} onChange={onChange} />
           </div>
 
-          {/* <div className='formInput'>
-            <label>Company</label>
-            <input type="text" placeholder='Company' name='company' value={company} onChange={onChange} />
-          </div> */}
-
           <button type='submit' className='btn-grad' >Register</button>
 
           <div className='home' >
             <Link to="/dashboard">
-              {/* <button onClick={navigate("/dashboard")}>Go to home page</button> */}
               Go to home page
             </Link>
           </div>

@@ -20,7 +20,6 @@ const style = {
 
 const ManagementCompany = () => {
   const loading = useSelector((state) => state.product.loading);
-  // const products = useSelector((state) => state.product.products);
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [formValue, setFormValue] = useState({
     name: "",
@@ -31,12 +30,6 @@ const ManagementCompany = () => {
     industry: "",
     foundedYear: "",
   });
-
-  // const [value, setValue] = React.useState("1");
-
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
 
   const dispatch = useDispatch();
 

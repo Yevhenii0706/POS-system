@@ -4,13 +4,11 @@ import {
   getLocalStorageToken,
 } from "../../utils/localStorage";
 import { clearCart } from "../cart/cartSlice";
-// import axios from "axios";
 
 const token = getLocalStorageToken();
 httpRequest.defaults.headers.common["Authorization"] = token;
 
 const productCreate = async (product) => {
-  // localhost:5000/api/product/add-product
   console.log(product);
   const response = await httpRequest.post("/createProduct", {
     name: product.name,
@@ -39,12 +37,6 @@ const getProducts = async () => {
 };
 
 const editProduct = async (product) => {
-  // localhost:5000/api/product/update-product
-  // var response = await httpRequest.post("/product/update", {
-  //   ...product,
-  //   price: Number(product.price),
-  //   stockLevel: Number(product.stockLevel),
-  // });
   var productData = await httpRequest.post("/inventory/getProductCatalog", {
     companyId: "67b705e701a4e144f539ae10",
     threshold: "7",
@@ -57,15 +49,12 @@ const editProduct = async (product) => {
 };
 
 const categoryProductFilter = async (product) => {
-  // localhost:5000/api/product/product-filter
   const { category } = product;
   const response = await httpRequest.get("/product/product-filter/" + category);
   return response.data;
 };
 
 const removeProduct = async (product, thunkAPI) => {
-  // localhost:5000/api/product/delete
-
   const response = await httpRequest.post("/product/delete", {
     companyId: product.companyId,
     productId: product.productId,

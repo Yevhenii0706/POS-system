@@ -13,7 +13,6 @@ const login = async (user) => {
 };
 
 const logout = async () => {
-  // const response = await httpRequest.post("/auth/logout")
   return "logout";
 };
 

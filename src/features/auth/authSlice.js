@@ -126,13 +126,8 @@ export const authSlice = createSlice({
       .addCase(allUsers.fulfilled, (state, action) => {
         state.users = action.payload;
       })
-      .addCase(resetPass.fulfilled, (state, action) => {
-        // state.message = action.payload;
-      })
-      .addCase(resetPass.rejected, (state, action) => {
-        // state.message = action.response;
-        // console.log("reject===>", action.payload);
-      });
+      .addCase(resetPass.fulfilled, (state, action) => {})
+      .addCase(resetPass.rejected, (state, action) => {});
   },
 });
 

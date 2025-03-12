@@ -22,7 +22,6 @@ const ResetPassword = () => {
     if (error) {
       toast.error("message")
     } else if (success || user) {
-      // navigate("/dashboard");
     }
   }, [user, success, error, message, navigate, dispatch]);
 

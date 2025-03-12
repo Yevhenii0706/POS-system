@@ -6,7 +6,6 @@ import ProductItem from "../components/ProductItem";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const Products = () => {
-  // const { loading, products } = useSelector((state) => state.product);
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
 

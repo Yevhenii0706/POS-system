@@ -141,7 +141,6 @@ export const productSlice = createSlice({
       })
       .addCase(removeProduct.fulfilled, (state, action) => {
         state.loading = false;
-        // update products state
         let removeProduct = state.products.filter(
           (item) => item.productId !== action.payload
         );

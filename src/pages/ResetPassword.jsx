@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { resetPass } from "../features/auth/authSlice";
 
@@ -69,7 +69,7 @@ const ResetPassword = () => {
             Reset Password
           </button>
           <div className="home">
-            <a href="/dashboard">Go back dashboard</a>
+            <Link to="/dashboard">Go back login</Link>
           </div>
         </form>
       </div>

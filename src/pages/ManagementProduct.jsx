@@ -28,7 +28,7 @@ const ManagementProduct = (props) => {
   const products = useSelector((state) => state.product.products);
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [editable, setEditable] = useState(false);
-  const [editableProduct, setEditableProduct] = useState([]);
+  // const [editableProduct, setEditableProduct] = useState([]);
   const [formValue, setFormValue] = useState({
     name: "",
     description: "",
@@ -80,7 +80,7 @@ const ManagementProduct = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (editable == false) {
+    if (editable === false) {
       dispatch(productCreate(formValue));
       dispatch(getProducts());
     } else {
@@ -200,7 +200,7 @@ const ManagementProduct = (props) => {
                     type="number"
                     placeholder="Product stockLevel"
                     name="stockLevel"
-                    defaultValue={editableProduct.stockLevel}
+                    // defaultValue={editableProduct.stockLevel}
                     value={formValue.stockLevel}
                     onChange={onChange}
                   />
@@ -218,7 +218,7 @@ const ManagementProduct = (props) => {
                 </div>
                 <div className="form-input">
                   <button className="product-btn">
-                    {editable == true ? "Edit" : "Add"} Product
+                    {editable === true ? "Edit" : "Add"} Product
                   </button>
                 </div>
               </form>

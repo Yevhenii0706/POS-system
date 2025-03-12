@@ -41,9 +41,9 @@ const EditProductItem = ({ product, onEditMessage }) => {
   //   dispatch(removeProduct(product));
   // };
 
-  const editModal = () => {
-    setEditModalOpen(true);
-  };
+  // const editModal = () => {
+  //   setEditModalOpen(true);
+  // };
 
   // const removeModal = () => {
   //   setRemoveModalOpen(true);

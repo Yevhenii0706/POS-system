@@ -40,11 +40,11 @@ const getProducts = async () => {
 
 const editProduct = async (product) => {
   // localhost:5000/api/product/update-product
-  var response = await httpRequest.post("/product/update", {
-    ...product,
-    price: Number(product.price),
-    stockLevel: Number(product.stockLevel),
-  });
+  // var response = await httpRequest.post("/product/update", {
+  //   ...product,
+  //   price: Number(product.price),
+  //   stockLevel: Number(product.stockLevel),
+  // });
   var productData = await httpRequest.post("/inventory/getProductCatalog", {
     companyId: "67b705e701a4e144f539ae10",
     threshold: "7",

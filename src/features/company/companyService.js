@@ -1,9 +1,6 @@
 import httpRequest from "../../utils/request";
-import {
-  deleteLocalStorageCart,
-  getLocalStorageToken,
-} from "../../utils/localStorage";
-import { clearCart } from "../cart/cartSlice";
+import { getLocalStorageToken } from "../../utils/localStorage";
+// import { clearCart } from "../cart/cartSlice";
 // import axios from "axios";
 
 const token = getLocalStorageToken();

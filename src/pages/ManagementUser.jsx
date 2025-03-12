@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const ManagementUser = () => {
   return (
     <div className="">
@@ -6,7 +7,7 @@ const ManagementUser = () => {
         className="order-button"
         style={{ marginLeft: 0, width: "150px" }}
       >
-        <a href="/register">Add User</a>
+        <Link to="/register">Add User</Link>
       </button>
     </div>
   );

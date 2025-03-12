@@ -5,7 +5,7 @@ const OrderPrint = ({ order }) => {
   const componentRef = useRef();
 
   const handlePrint = useReactToPrint({
-    content: () => componentRef.current
+    content: () => componentRef.current,
     // ,
     // onAfterPrint: () => alert("print success"),
   });
@@ -120,8 +120,10 @@ const OrderPrint = ({ order }) => {
                     </div>
                     <div className="i_col w_50 text_right">
                       <p> {order.totalAmount}</p>
-                      <p>{order.tax ? order.tax : 0}:</p>
-                      <p>{order.totalAmount}</p>
+                      <p>{tax ? (tax / 100.0) * order.totalAmount : 0}:</p>
+                      <p>
+                        {order.totalAmount + (tax / 100.0) * order.totalAmount}
+                      </p>
                     </div>
                   </div>
                   <div className="i_row grand_total_wrap">
@@ -129,7 +131,9 @@ const OrderPrint = ({ order }) => {
                       <p>GRAND TOTAL:</p>
                     </div>
                     <div className="i_col w_50 text_right">
-                      <p>{order.totalAmount}</p>
+                      <p>
+                        {order.totalAmount + (tax / 100.0) * order.totalAmount}
+                      </p>
                     </div>
                   </div>
                 </div>

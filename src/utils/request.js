@@ -3,14 +3,14 @@ import { getLocalStorageToken } from "./localStorage";
 
 const token = getLocalStorageToken();
 
-console.log("token", token)
+console.log("token", token);
 const httpRequest = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    ...(token ? { Authorization: `Bearer ${token}` } : {})
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
   },
-  baseURL: "https://inventory-r06h.onrender.com/api",
+  baseURL: "https://pos-03zq.onrender.com/api",
   credentials: "include",
 });
 

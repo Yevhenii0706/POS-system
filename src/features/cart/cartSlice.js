@@ -13,7 +13,7 @@ const initialState = {
   totalAmount: 0,
   subTotal: 0,
   tax: 0,
-  setTax: taxItem,
+  setTax: Number(taxItem),
 };
 
 export const cartSlice = createSlice({
@@ -59,12 +59,14 @@ export const cartSlice = createSlice({
       localStorage.setItem("tax", state.setTax);
       const productTax = (state.setTax / 100) * state.subTotal;
       state.tax = productTax;
+      state.totalAmount = state.tax + state.subTotal;
     },
     decreaseTax: (state, action) => {
       state.setTax = state.setTax - 1;
       localStorage.setItem("tax", state.setTax);
       const productTax = (state.setTax / 100) * state.subTotal;
       state.tax = productTax;
+      state.totalAmount = state.tax + state.subTotal;
     },
     increase: (state, action) => {
       const product = state.cartItems.find(

@@ -4,6 +4,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { Box, Fade, Modal } from "@mui/material";
 
 import Backdrop from "@mui/material/Backdrop";
+import { companyCreate } from "../features/company/companySlice";
 
 const style = {
   position: "absolute",
@@ -28,7 +29,7 @@ const ManagementCompany = () => {
     address: "",
     website: "",
     industry: "",
-    foundedYear: ""
+    foundedYear: "",
   });
 
   // const [value, setValue] = React.useState("1");
@@ -44,8 +45,7 @@ const ManagementCompany = () => {
     const value = e.target.value;
     setFormValue({ ...formValue, [name]: value });
   };
-  useEffect(() => {
-  }, [dispatch]);
+  useEffect(() => {}, [dispatch]);
 
   const override = {
     display: "block",
@@ -56,16 +56,11 @@ const ManagementCompany = () => {
     return <ClipLoader size={60} color="#ecc20e" cssOverride={override} />;
   }
 
-  if (products.length === 0) {
-    return (
-      <div className="info-details">
-        <div className="info">No products found...</div>
-      </div>
-    );
-  }
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    dispatch(companyCreate(formValue));
+    setAddModalOpen(false);
   };
 
   return (

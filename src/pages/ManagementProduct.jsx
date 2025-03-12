@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts, productCreate } from "../features/product/productSlice";
+import {
+  editProduct,
+  getProducts,
+  productCreate,
+} from "../features/product/productSlice";
 import ClipLoader from "react-spinners/ClipLoader";
 import EditProductItem from "../components/EditProductItem";
 import Backdrop from "@mui/material/Backdrop";
@@ -19,10 +23,12 @@ const style = {
   p: 4,
 };
 
-const ManagementProduct = () => {
+const ManagementProduct = (props) => {
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
   const [addModalOpen, setAddModalOpen] = useState(false);
+  const [editable, setEditable] = useState(false);
+  const [editableProduct, setEditableProduct] = useState([]);
   const [formValue, setFormValue] = useState({
     name: "",
     description: "",
@@ -65,13 +71,26 @@ const ManagementProduct = () => {
       </div>
     );
   }
+
+  const EditItemClicked = (product) => {
+    setFormValue({ ...product });
+    setEditable(true);
+    setAddModalOpen(true);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(productCreate(formValue));
+    if (editable == false) {
+      dispatch(productCreate(formValue));
+      dispatch(getProducts());
+    } else {
+      dispatch(editProduct(formValue));
+      dispatch(getProducts());
+    }
+    setAddModalOpen(false);
     // dispatch(clearValues());
   };
   return (
-
     <div className="product-area">
       <div className="company-category">
         <ul className="treeview">
@@ -99,9 +118,15 @@ const ManagementProduct = () => {
           Add Product
         </button>
         <div className="product-grid" id="product-grid">
-          {products.map((product) => (
-            <EditProductItem key={product.productId} product={product} />
-          ))}
+          {products?.map((product) => {
+            return (
+              <EditProductItem
+                key={product._id}
+                product={product}
+                onEditMessage={() => EditItemClicked(product)}
+              />
+            );
+          })}
         </div>
 
         <Modal
@@ -126,7 +151,9 @@ const ManagementProduct = () => {
                   X
                 </button>
                 <div className="add-form">
-                  <h1 className="new-product">New Product</h1>
+                  <h1 className="new-product">
+                    {editable == true ? "Edit" : "Add"} Product
+                  </h1>
                 </div>
 
                 <div className="form-input">
@@ -173,6 +200,7 @@ const ManagementProduct = () => {
                     type="number"
                     placeholder="Product stockLevel"
                     name="stockLevel"
+                    defaultValue={editableProduct.stockLevel}
                     value={formValue.stockLevel}
                     onChange={onChange}
                   />
@@ -189,7 +217,9 @@ const ManagementProduct = () => {
                   />
                 </div>
                 <div className="form-input">
-                  <button className="product-btn">Add Product</button>
+                  <button className="product-btn">
+                    {editable == true ? "Edit" : "Add"} Product
+                  </button>
                 </div>
               </form>
             </Box>

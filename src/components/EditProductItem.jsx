@@ -14,6 +14,7 @@ import {
   productTotalAmount,
 } from "../features/cart/cartSlice";
 import { Box, Fade, Modal, Typography } from "@mui/material";
+import { removeProduct } from "../features/product/productSlice";
 
 const style = {
   position: "absolute",
@@ -26,7 +27,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-const EditProductItem = ({ product }) => {
+const EditProductItem = ({ product, onEditMessage }) => {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -56,6 +57,10 @@ const EditProductItem = ({ product }) => {
     dispatch(productTax());
     dispatch(productTotalAmount());
   }, [dispatch, cartItems]);
+
+  const deleteProduct = (product) => {
+    dispatch(removeProduct(product));
+  };
 
   // const setEdit = (product) => {
   //   const { name, description, sku, price, stockLevel, qrCode } = product;
@@ -145,9 +150,7 @@ const EditProductItem = ({ product }) => {
         >
           <button
             className="order-button"
-            onClick={() => {
-              editModal(product);
-            }}
+            onClick={onEditMessage}
             style={{ marginLeft: 0 }}
           >
             Edit
@@ -155,7 +158,7 @@ const EditProductItem = ({ product }) => {
           <button
             className="order-button"
             onClick={() => {
-              // removeModal(product);
+              deleteProduct(product);
             }}
           >
             Remove
